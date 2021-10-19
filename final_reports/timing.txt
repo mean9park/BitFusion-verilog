@@ -1,0 +1,78 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'BitFusion' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : BitFusion
+Version: N-2017.09-SP3
+Date   : Mon Oct 18 22:54:01 2021
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: Input_MUX_REG_13/sorted_data_reg[30]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: BitFusion_column_9/PE_reg_13/PE_sum_out_reg[18]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  BitFusion          2000000               saed32hvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Input_MUX_REG_13/sorted_data_reg[30]/CLK (DFFX1_HVT)
+                                                          0.00 #     0.00 r
+  Input_MUX_REG_13/sorted_data_reg[30]/Q (DFFX1_HVT)      0.22       0.22 f
+  U168721/Y (AND2X2_HVT)                                  0.12       0.34 f
+  U168706/Y (NAND2X0_HVT)                                 0.09       0.43 r
+  U211685/Y (INVX0_HVT)                                   0.05       0.48 f
+  U364538/Y (XOR3X2_HVT)                                  0.23       0.71 r
+  U364539/Y (AO22X1_HVT)                                  0.12       0.83 r
+  U365089/Y (AND2X1_HVT)                                  0.09       0.92 r
+  U365158/CO (FADDX1_HVT)                                 0.16       1.08 r
+  U365161/CO (FADDX1_HVT)                                 0.17       1.25 r
+  U365163/CO (FADDX1_HVT)                                 0.15       1.40 r
+  U365166/CO (FADDX1_HVT)                                 0.17       1.57 r
+  U172126/Y (OR2X1_HVT)                                   0.09       1.65 r
+  U172125/Y (NAND2X0_HVT)                                 0.05       1.70 f
+  U172123/Y (NAND2X0_HVT)                                 0.07       1.78 r
+  U365117/CO (FADDX1_HVT)                                 0.15       1.93 r
+  U365123/S (FADDX1_HVT)                                  0.23       2.15 f
+  U169282/Y (NAND2X0_HVT)                                 0.07       2.23 r
+  U169281/Y (OA21X1_HVT)                                  0.13       2.36 r
+  U223920/Y (OA21X1_HVT)                                  0.10       2.46 r
+  U169615/Y (OA21X1_HVT)                                  0.10       2.56 r
+  U160358/Y (NBUFFX2_HVT)                                 0.08       2.64 r
+  U172415/Y (OR2X1_HVT)                                   0.08       2.72 r
+  U172414/Y (NAND3X0_HVT)                                 0.06       2.78 f
+  U172413/Y (NAND2X0_HVT)                                 0.06       2.84 r
+  U172418/Y (AND2X1_HVT)                                  0.08       2.92 r
+  BitFusion_column_9/PE_reg_13/PE_sum_out_reg[18]/D (DFFX1_HVT)
+                                                          0.00       2.92 r
+  data arrival time                                                  2.92
+
+  clock clk (rise edge)                                   3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  BitFusion_column_9/PE_reg_13/PE_sum_out_reg[18]/CLK (DFFX1_HVT)
+                                                          0.00       3.00 r
+  library setup time                                     -0.08       2.92
+  data required time                                                 2.92
+  --------------------------------------------------------------------------
+  data required time                                                 2.92
+  data arrival time                                                 -2.92
+  --------------------------------------------------------------------------
+  slack (MET)                                                        0.00
+
+
+1
