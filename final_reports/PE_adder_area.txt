@@ -1,0 +1,30 @@
+ 
+****************************************
+Report : area
+Design : PE_adder
+Version: N-2017.09-SP3
+Date   : Thu Oct 21 15:23:11 2021
+****************************************
+
+Library(s) Used:
+
+    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
+
+Number of ports:                          176
+Number of nets:                           728
+Number of cells:                          412
+Number of combinational cells:            412
+Number of sequential cells:                 0
+Number of macros/black boxes:               0
+Number of buf/inv:                         75
+Number of references:                      15
+
+Combinational area:               1282.156455
+Buf/Inv area:                       95.304000
+Noncombinational area:               0.000000
+Macro/Black Box area:                0.000000
+Net Interconnect area:             180.961603
+
+Total cell area:                  1282.156455
+Total area:                       1463.118058
+1

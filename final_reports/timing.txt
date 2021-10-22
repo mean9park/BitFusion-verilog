@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Wed Oct 20 17:44:50 2021
+Date   : Wed Oct 20 23:28:48 2021
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.

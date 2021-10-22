@@ -67,7 +67,10 @@ module PE(
     
     
     PE_adder ADDER_TREE(
-    .sum_signal(sum_signal),
+    .sum_signal_1(sum_signal[1:0]),
+    .sum_signal_2(sum_signal[3:2]),
+    .sum_signal_3(sum_signal[5:4]),
+    .sum_signal_4(sum_signal[7:6]),
 
     .p_shift_0(p_shift_0), 
     .p_shift_1(p_shift_1), 

@@ -1,0 +1,69 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : PE
+Version: N-2017.09-SP3
+Date   : Fri Oct 22 01:10:22 2021
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: x[2] (input port)
+  Endpoint: PE_sum[19] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  PE                 8000                  saed32hvt_ss0p95v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  x[2] (in)                                0.00       0.00 r
+  U656/Y (NAND3X0_HVT)                     0.08       0.08 f
+  U311/Y (INVX0_HVT)                       0.06       0.14 r
+  U310/Y (XOR2X1_HVT)                      0.17       0.31 f
+  U659/Y (OA21X1_HVT)                      0.11       0.42 f
+  U662/S (FADDX1_HVT)                      0.21       0.63 r
+  U663/Y (AO22X1_HVT)                      0.11       0.74 r
+  U1120/Y (AND2X1_HVT)                     0.09       0.83 r
+  U1131/S (FADDX1_HVT)                     0.23       1.05 f
+  U1132/S (FADDX1_HVT)                     0.21       1.26 r
+  intadd_2/U7/CO (FADDX1_HVT)              0.15       1.41 r
+  intadd_2/U6/CO (FADDX1_HVT)              0.14       1.56 r
+  intadd_2/U5/CO (FADDX1_HVT)              0.14       1.70 r
+  intadd_2/U4/CO (FADDX1_HVT)              0.14       1.84 r
+  intadd_2/U3/CO (FADDX1_HVT)              0.14       1.98 r
+  intadd_2/U2/CO (FADDX1_HVT)              0.17       2.16 r
+  U521/Y (NOR2X0_HVT)                      0.13       2.28 f
+  U1023/Y (NAND2X0_HVT)                    0.07       2.36 r
+  U1024/Y (AND2X1_HVT)                     0.10       2.46 r
+  U1027/Y (AND2X1_HVT)                     0.08       2.54 r
+  intadd_11/U4/S (FADDX1_HVT)              0.22       2.75 f
+  U469/Y (INVX0_HVT)                       0.05       2.80 r
+  intadd_7/U2/S (FADDX1_HVT)               0.15       2.95 r
+  intadd_0/U12/CO (FADDX1_HVT)             0.15       3.10 r
+  intadd_0/U11/CO (FADDX1_HVT)             0.14       3.25 r
+  intadd_0/U10/CO (FADDX1_HVT)             0.14       3.39 r
+  intadd_0/U9/CO (FADDX1_HVT)              0.14       3.53 r
+  intadd_0/U8/CO (FADDX1_HVT)              0.14       3.67 r
+  intadd_0/U7/CO (FADDX1_HVT)              0.14       3.81 r
+  intadd_0/U6/CO (FADDX1_HVT)              0.14       3.96 r
+  intadd_0/U5/CO (FADDX1_HVT)              0.14       4.10 r
+  intadd_0/U4/CO (FADDX1_HVT)              0.14       4.24 r
+  intadd_0/U3/CO (FADDX1_HVT)              0.14       4.38 r
+  U500/Y (XOR2X1_HVT)                      0.18       4.56 f
+  U510/S (FADDX1_HVT)                      0.18       4.73 r
+  PE_sum[19] (out)                         0.00       4.73 r
+  data arrival time                                   4.73
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

@@ -1,0 +1,64 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : PE_adder
+Version: N-2017.09-SP3
+Date   : Thu Oct 21 15:23:11 2021
+****************************************
+
+Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: p_shift_14[0]
+              (input port)
+  Endpoint: PE_sum[19] (output port)
+  Path Group: (none)
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  PE_adder           8000                  saed32hvt_ss0p95v125c
+
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 f
+  p_shift_14[0] (in)                       0.00       0.00 f
+  U122/Y (NAND2X0_HVT)                     0.04       0.04 r
+  U125/Y (OA21X1_HVT)                      0.10       0.14 r
+  U241/CO (FADDX1_HVT)                     0.14       0.28 r
+  U221/CO (FADDX1_HVT)                     0.16       0.44 r
+  U206/CO (FADDX1_HVT)                     0.17       0.61 r
+  U174/CO (FADDX1_HVT)                     0.14       0.75 r
+  U187/CO (FADDX1_HVT)                     0.15       0.90 r
+  U135/CO (FADDX1_HVT)                     0.16       1.06 r
+  U207/S (FADDX1_HVT)                      0.14       1.20 r
+  U208/Y (OAI22X1_HVT)                     0.12       1.32 f
+  U324/Y (NOR2X0_HVT)                      0.10       1.42 r
+  U365/CO (FADDX1_HVT)                     0.14       1.57 r
+  U335/S (FADDX1_HVT)                      0.24       1.80 f
+  U339/S (FADDX1_HVT)                      0.20       2.01 r
+  U406/CO (FADDX1_HVT)                     0.17       2.18 r
+  U405/CO (FADDX1_HVT)                     0.15       2.33 r
+  U404/CO (FADDX1_HVT)                     0.14       2.47 r
+  U403/CO (FADDX1_HVT)                     0.14       2.61 r
+  U402/CO (FADDX1_HVT)                     0.14       2.76 r
+  U401/CO (FADDX1_HVT)                     0.14       2.90 r
+  U400/CO (FADDX1_HVT)                     0.14       3.04 r
+  U399/CO (FADDX1_HVT)                     0.14       3.18 r
+  U398/CO (FADDX1_HVT)                     0.14       3.32 r
+  U397/CO (FADDX1_HVT)                     0.14       3.47 r
+  U396/CO (FADDX1_HVT)                     0.15       3.62 r
+  U414/CO (FADDX1_HVT)                     0.15       3.77 r
+  U386/S (FADDX1_HVT)                      0.22       3.99 f
+  U395/S (FADDX1_HVT)                      0.18       4.17 r
+  PE_sum[19] (out)                         0.00       4.17 r
+  data arrival time                                   4.17
+  -----------------------------------------------------------
+  (Path is unconstrained)
+
+
+1

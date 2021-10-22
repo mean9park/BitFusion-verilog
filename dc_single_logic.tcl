@@ -21,24 +21,21 @@ sh rm -rf ./WORK
 define_design_lib WORK -path WORK
 
 set SOURCE_FILES {
-    ./HA.v
-    ./FA.v
-	./accumulator.v
-	./bitbrick_shift.v
-	./bitbrick.v
-	./BitFusion_column.v
-	./Buffer_32bit.v
-	./Input_MUX_REG.v
-	./PE_adder.v
-	./PE_register.v
-	./PE.v
-	./signed3bit_MUL.v
-	./top.v
-	./Weight_MUX_REG.v
+    ./accumulator.v
+    ./Buffer_32bit.v
+    ./BitFusion_column.v
+    ./PE_register.v
+    ./bitbrick.v
+    ./bitbrick_shift.v
+    ./PE_adder.v
+    ./PE.v
+    ./signed3bit_MUL.v
+    ./Weight_MUX_REG.v
 }
 
 analyze -format verilog $SOURCE_FILES -library WORK
-elaborate BitFusion
+elaborate BitFusion_column
+
 
 set reports_dir reports
 set final_reports_dir final_reports
@@ -55,23 +52,23 @@ if { ! [ file exists $design_dir] } {
 }
 
 # set current_design top
-# link
+link
 
 create_clock clk -period 3
 
 ungroup -all -flatten
-
+link
 compile_ultra
 #compile
 
 
-report_timing > $final_reports_dir/timing.txt
-sh cat $final_reports_dir/timing.txt
+report_timing > $final_reports_dir/column_timing.txt
+sh cat $final_reports_dir/column_timing.txt
 
-report_area > $final_reports_dir/area.txt
-sh cat $final_reports_dir/area.txt
+report_area > $final_reports_dir/column_area.txt
+sh cat $final_reports_dir/column_area.txt
 
-report_power > $final_reports_dir/power.txt
-sh cat $final_reports_dir/power.txt
+report_power > $final_reports_dir/column_power.txt
+sh cat $final_reports_dir/column_power.txt
 
 #exit
