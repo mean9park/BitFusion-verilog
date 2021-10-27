@@ -54,6 +54,8 @@ if { ! [ file exists $design_dir] } {
 	file mkdir $design_dir
 }
 
+set_dont_touch (get_designs signed_3bit_MUL)
+
 # set current_design top
 # link
 
@@ -61,8 +63,8 @@ create_clock clk -period 3
 
 ungroup -all -flatten
 
-compile_ultra
-#compile
+# compile_ultra
+compile
 
 
 report_timing > $final_reports_dir/timing.txt

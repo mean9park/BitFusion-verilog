@@ -34,7 +34,7 @@ module Input_MUX_REG(
         sorted_data <= buffer;
     else if (state == 2'b00) begin 
         if(weight_bitwidth == 2'b01) begin
-            sorted_data <= { {2{buffer[15:14]}}, {2{buffer[11:10]}}, {2{buffer[13:12]}}, {2{buffer[9:8]}}, {2{buffer[7:6]}}, {2{buffer[3:2]}}, {2{buffer[5:4]}}, {2{buffer[1:0]}} };
+            sorted_data <= { {2{buffer[15:14]}}, {2{buffer[7:6]}}, {2{buffer[13:12]}}, {2{buffer[5:4]}}, {2{buffer[11:10]}}, {2{buffer[3:2]}}, {2{buffer[9:8]}}, {2{buffer[1:0]}} };
             state <= state + 1;
             end
         else begin
@@ -45,7 +45,7 @@ module Input_MUX_REG(
             
     else if (state == 2'b01) begin
         if(weight_bitwidth == 2'b01) begin
-            sorted_data <= { {2{buffer[31:30]}}, {2{buffer[27:26]}}, {2{buffer[29:28]}}, {2{buffer[25:24]}}, {2{buffer[23:22]}}, {2{buffer[19:18]}}, {2{buffer[21:20]}}, {2{buffer[17:16]}} };
+            sorted_data <= { {2{buffer[31:30]}}, {2{buffer[23:22]}}, {2{buffer[29:28]}}, {2{buffer[21:20]}}, {2{buffer[27:26]}}, {2{buffer[19:18]}}, {2{buffer[25:24]}}, {2{buffer[17:16]}} };
             state <= 0;
             end
         else begin

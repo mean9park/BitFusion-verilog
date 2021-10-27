@@ -3,7 +3,7 @@
 Report : area
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Wed Oct 20 23:28:48 2021
+Date   : Fri Oct 22 17:50:50 2021
 ****************************************
 
 Library(s) Used:
@@ -11,20 +11,20 @@ Library(s) Used:
     saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
 Number of ports:                         9206
-Number of nets:                        463474
-Number of cells:                       427557
-Number of combinational cells:         412525
-Number of sequential cells:             15032
+Number of nets:                        451181
+Number of cells:                       414127
+Number of combinational cells:         398855
+Number of sequential cells:             15272
 Number of macros/black boxes:               0
-Number of buf/inv:                      44538
-Number of references:                      71
+Number of buf/inv:                      51422
+Number of references:                      72
 
-Combinational area:             943115.935517
-Buf/Inv area:                    60038.978929
-Noncombinational area:           98104.670008
+Combinational area:             931089.840125
+Buf/Inv area:                    69392.748934
+Noncombinational area:           98351.697872
 Macro/Black Box area:                0.000000
-Net Interconnect area:          823852.755277
+Net Interconnect area:          819836.754681
 
-Total cell area:               1041220.605525
-Total area:                    1865073.360802
+Total cell area:               1029441.537997
+Total area:                    1849278.292679
 1

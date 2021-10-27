@@ -1,0 +1,138 @@
+Information: Updating design information... (UID-85)
+Warning: Design 'BitFusion' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 1
+Design : BitFusion
+Version: N-2017.09-SP3
+Date   : Mon Oct 25 03:26:09 2021
+****************************************
+
+ # A fanout number of 1000 was used for high fanout net computations.
+
+Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: Input_MUX_REG_5/sorted_data_reg[5]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: BitFusion_column_11/PE_reg_5/PE_sum_out_reg[19]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  BitFusion          2000000               saed32hvt_ss0p95v125c
+  BitFusion_DW01_add_2311
+                     ForQA                 saed32hvt_ss0p95v125c
+  BitFusion_DW01_add_J169_48
+                     8000                  saed32hvt_ss0p95v125c
+  BitFusion_DW01_add_J159_8
+                     8000                  saed32hvt_ss0p95v125c
+  BitFusion_DW01_add_J180_0
+                     8000                  saed32hvt_ss0p95v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  Input_MUX_REG_5/sorted_data_reg[5]/CLK (DFFASRX2_HVT)
+                                                          0.00 #     0.00 r
+  Input_MUX_REG_5/sorted_data_reg[5]/Q (DFFASRX2_HVT)     0.36       0.36 f
+  U117326/Y (AND2X2_HVT)                                  0.14       0.50 f
+  U269192/Y (NAND2X0_HVT)                                 0.09       0.59 r
+  U122950/Y (XNOR3X2_HVT)                                 0.30       0.89 r
+  U114672/Y (XOR2X2_HVT)                                  0.16       1.04 f
+  U269216/Y (NAND2X0_HVT)                                 0.06       1.10 r
+  U269220/Y (NAND2X0_HVT)                                 0.08       1.18 f
+  U113263/Y (INVX0_HVT)                                   0.04       1.23 r
+  U269289/Y (AO21X1_HVT)                                  0.11       1.34 r
+  U134270/Y (AND2X1_HVT)                                  0.08       1.42 r
+  U115911/Y (XNOR3X2_HVT)                                 0.12       1.54 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/A[4] (BitFusion_DW01_add_2311)
+                                                          0.00       1.54 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_4/CO (FADDX1_HVT)
+                                                          0.18       1.72 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_5/CO (FADDX1_HVT)
+                                                          0.15       1.86 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_6/CO (FADDX1_HVT)
+                                                          0.15       2.01 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_7/CO (FADDX1_HVT)
+                                                          0.15       2.16 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_8/CO (FADDX1_HVT)
+                                                          0.14       2.29 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/U1_9/Y (XOR3X2_HVT)
+                                                          0.09       2.39 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/SUM[9] (BitFusion_DW01_add_2311)
+                                                          0.00       2.39 r
+  U269425/Y (AO222X1_HVT)                                 0.14       2.53 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[10] (BitFusion_DW01_add_J169_48)
+                                                          0.00       2.53 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U183/Y (NOR2X1_HVT)
+                                                          0.13       2.66 f
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U181/Y (OAI21X2_HVT)
+                                                          0.14       2.79 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U91/Y (AOI21X1_HVT)
+                                                          0.12       2.91 f
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U184/Y (INVX2_HVT)
+                                                          0.03       2.95 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U231/Y (AO21X1_HVT)
+                                                          0.12       3.06 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U185/Y (XNOR2X2_HVT)
+                                                          0.13       3.20 r
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[12] (BitFusion_DW01_add_J169_48)
+                                                          0.00       3.20 r
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[12] (BitFusion_DW01_add_J159_8)
+                                                          0.00       3.20 r
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U64/Y (NAND2X0_HVT)
+                                                          0.07       3.27 f
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U192/Y (INVX1_HVT)
+                                                          0.04       3.31 r
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U50/Y (AOI21X1_HVT)
+                                                          0.14       3.45 f
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U160/Y (OAI21X2_HVT)
+                                                          0.12       3.57 r
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U161/Y (INVX2_HVT)
+                                                          0.03       3.61 f
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U162/Y (XOR2X2_HVT)
+                                                          0.13       3.74 r
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[14] (BitFusion_DW01_add_J159_8)
+                                                          0.00       3.74 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[14] (BitFusion_DW01_add_J180_0)
+                                                          0.00       3.74 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U47/Y (NOR2X0_HVT)
+                                                          0.11       3.86 f
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U160/Y (OAI21X2_HVT)
+                                                          0.14       4.00 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U42/Y (AOI21X1_HVT)
+                                                          0.10       4.09 f
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U163/Y (OAI21X2_HVT)
+                                                          0.14       4.24 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U216/Y (AO21X1_HVT)
+                                                          0.12       4.36 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U162/Y (XNOR2X2_HVT)
+                                                          0.13       4.49 r
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[19] (BitFusion_DW01_add_J180_0)
+                                                          0.00       4.49 r
+  U191096/Y (AND2X1_HVT)                                  0.07       4.56 r
+  BitFusion_column_11/PE_reg_5/PE_sum_out_reg[19]/D (DFFX1_HVT)
+                                                          0.00       4.56 r
+  data arrival time                                                  4.56
+
+  clock clk (rise edge)                                   3.00       3.00
+  clock network delay (ideal)                             0.00       3.00
+  BitFusion_column_11/PE_reg_5/PE_sum_out_reg[19]/CLK (DFFX1_HVT)
+                                                          0.00       3.00 r
+  library setup time                                     -0.08       2.92
+  data required time                                                 2.92
+  --------------------------------------------------------------------------
+  data required time                                                 2.92
+  data arrival time                                                 -4.56
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -1.64
+
+
+1
