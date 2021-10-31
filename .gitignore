@@ -1,0 +1,9 @@
+*.out
+*.log
+*.sh
+*.tcl
+final_reports/
+alib-52/
+designs/
+reports/
+WORK/
