@@ -4,7 +4,7 @@ Report : power
         -analysis_effort low
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 17:50:52 2021
+Date   : Fri Oct 29 21:38:20 2021
 ****************************************
 
 
@@ -30,12 +30,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  =  85.7534 mW   (80%)
-  Net Switching Power  =  22.0302 mW   (20%)
+  Cell Internal Power  =  86.2030 mW   (79%)
+  Net Switching Power  =  22.2546 mW   (21%)
                          ---------
-Total Dynamic Power    = 107.7835 mW  (100%)
+Total Dynamic Power    = 108.4577 mW  (100%)
 
-Cell Leakage Power     =  14.1515 mW
+Cell Leakage Power     =  14.3212 mW
 
 
                  Internal         Switching           Leakage            Total
@@ -45,9 +45,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       3.3820e+04        1.1763e+03        2.1586e+09        3.7155e+04  (  30.47%)
+register       3.3883e+04        1.1999e+03        2.1606e+09        3.7244e+04  (  30.33%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  5.1936e+04        2.0856e+04        1.1993e+10        8.4786e+04  (  69.53%)
+combinational  5.2324e+04        2.1058e+04        1.2161e+10        8.5537e+04  (  69.67%)
 --------------------------------------------------------------------------------------------------
-Total          8.5756e+04 uW     2.2033e+04 uW     1.4152e+10 pW     1.2194e+05 uW
+Total          8.6207e+04 uW     2.2258e+04 uW     1.4321e+10 pW     1.2278e+05 uW
 1

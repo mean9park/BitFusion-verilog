@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 17:50:50 2021
+Date   : Fri Oct 29 21:38:19 2021
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -16,9 +16,9 @@ Date   : Fri Oct 22 17:50:50 2021
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
 Wire Load Model Mode: enclosed
 
-  Startpoint: Input_MUX_REG_4/sorted_data_reg[20]
+  Startpoint: Input_MUX_REG_8/sorted_data_reg[25]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: BitFusion_column_8/PE_reg_4/PE_sum_out_reg[17]
+  Endpoint: BitFusion_column_6/PE_reg_8/PE_sum_out_reg[14]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -31,50 +31,55 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  Input_MUX_REG_4/sorted_data_reg[20]/CLK (DFFX1_HVT)     0.00 #     0.00 r
-  Input_MUX_REG_4/sorted_data_reg[20]/Q (DFFX1_HVT)       0.20       0.20 r
-  U216028/Y (AND2X2_HVT)                                  0.12       0.32 r
-  U295924/Y (NAND2X0_HVT)                                 0.10       0.43 f
-  U215535/Y (AO21X1_HVT)                                  0.14       0.57 f
-  U215534/Y (XOR3X2_HVT)                                  0.23       0.79 r
-  U365708/Y (NAND2X0_HVT)                                 0.06       0.85 f
-  U215566/Y (NAND2X0_HVT)                                 0.08       0.93 r
-  U365741/S (FADDX1_HVT)                                  0.24       1.17 f
-  U365736/S (FADDX1_HVT)                                  0.20       1.38 r
-  U185638/Y (OR2X2_HVT)                                   0.09       1.46 r
-  U238937/Y (NAND3X0_HVT)                                 0.07       1.53 f
-  U240008/Y (AND3X1_HVT)                                  0.13       1.66 f
-  U242124/Y (XOR2X2_HVT)                                  0.15       1.80 r
-  U319835/Y (NAND2X0_HVT)                                 0.05       1.85 f
-  U236803/Y (NAND2X0_HVT)                                 0.06       1.91 r
-  U251904/Y (MUX21X2_HVT)                                 0.14       2.06 r
-  U533886/CO (FADDX1_HVT)                                 0.15       2.20 r
-  U533896/S (FADDX1_HVT)                                  0.22       2.42 f
-  U533903/S (FADDX1_HVT)                                  0.20       2.63 r
-  U186939/Y (OR2X2_HVT)                                   0.09       2.72 r
-  U186938/Y (INVX2_HVT)                                   0.03       2.74 f
-  U257513/Y (OA21X1_HVT)                                  0.08       2.83 f
-  U257511/Y (OA21X1_HVT)                                  0.09       2.91 f
-  U257515/Y (OA21X1_HVT)                                  0.09       3.01 f
-  U257514/Y (INVX2_HVT)                                   0.03       3.04 r
-  U533967/Y (AO21X1_HVT)                                  0.12       3.15 r
-  U533969/Y (XNOR2X2_HVT)                                 0.13       3.28 r
-  U533970/Y (AND2X1_HVT)                                  0.07       3.36 r
-  BitFusion_column_8/PE_reg_4/PE_sum_out_reg[17]/D (DFFX1_HVT)
+  Input_MUX_REG_8/sorted_data_reg[25]/CLK (DFFX1_HVT)     0.00 #     0.00 r
+  Input_MUX_REG_8/sorted_data_reg[25]/Q (DFFX1_HVT)       0.22       0.22 r
+  U262322/Y (NBUFFX8_HVT)                                 0.09       0.31 r
+  U262802/Y (AND2X4_HVT)                                  0.15       0.47 r
+  U443247/Y (NAND2X0_HVT)                                 0.10       0.56 f
+  U181762/Y (NAND2X0_HVT)                                 0.08       0.64 r
+  U181507/Y (INVX1_HVT)                                   0.04       0.69 f
+  U181761/Y (NAND2X0_HVT)                                 0.06       0.74 r
+  U300883/Y (NAND3X0_HVT)                                 0.11       0.85 f
+  U443281/S (FADDX1_HVT)                                  0.25       1.10 r
+  U224960/Y (OR2X1_HVT)                                   0.08       1.18 r
+  U224957/Y (NAND2X0_HVT)                                 0.05       1.23 f
+  U330807/Y (NAND2X0_HVT)                                 0.07       1.30 r
+  U330806/Y (NAND2X0_HVT)                                 0.07       1.38 f
+  U345572/Y (AND2X1_HVT)                                  0.08       1.46 f
+  U303416/Y (OA21X1_HVT)                                  0.12       1.58 f
+  U190161/Y (INVX1_HVT)                                   0.03       1.61 r
+  U312776/Y (NAND3X0_HVT)                                 0.07       1.68 f
+  U187973/Y (AND2X1_HVT)                                  0.10       1.78 f
+  U190494/Y (XOR2X2_HVT)                                  0.14       1.92 r
+  U190493/Y (NAND2X0_HVT)                                 0.05       1.97 f
+  U190491/Y (NAND2X0_HVT)                                 0.06       2.04 r
+  U246122/Y (MUX21X2_HVT)                                 0.14       2.18 r
+  U555988/CO (FADDX1_HVT)                                 0.15       2.33 r
+  U555991/S (FADDX1_HVT)                                  0.22       2.54 f
+  U555997/S (FADDX1_HVT)                                  0.20       2.75 r
+  U201491/Y (OR2X1_HVT)                                   0.09       2.83 r
+  U224898/Y (NAND2X0_HVT)                                 0.06       2.90 f
+  U224897/Y (INVX0_HVT)                                   0.04       2.94 r
+  U224894/Y (NAND2X0_HVT)                                 0.06       3.00 f
+  U304268/Y (OA21X1_HVT)                                  0.12       3.12 f
+  U199263/Y (INVX2_HVT)                                   0.05       3.16 r
+  U345647/Y (XNOR2X2_HVT)                                 0.13       3.29 r
+  U556068/Y (AND2X1_HVT)                                  0.07       3.36 r
+  BitFusion_column_6/PE_reg_8/PE_sum_out_reg[14]/D (DFFX1_HVT)
                                                           0.00       3.36 r
   data arrival time                                                  3.36
 
   clock clk (rise edge)                                   3.00       3.00
   clock network delay (ideal)                             0.00       3.00
-  BitFusion_column_8/PE_reg_4/PE_sum_out_reg[17]/CLK (DFFX1_HVT)
+  BitFusion_column_6/PE_reg_8/PE_sum_out_reg[14]/CLK (DFFX1_HVT)
                                                           0.00       3.00 r
-  library setup time                                     -0.08       2.92
-  data required time                                                 2.92
+  library setup time                                     -0.09       2.91
+  data required time                                                 2.91
   --------------------------------------------------------------------------
-  data required time                                                 2.92
+  data required time                                                 2.91
   data arrival time                                                 -3.36
   --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -0.44
+  slack (VIOLATED)                                                  -0.45
 
 
 1

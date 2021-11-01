@@ -8,7 +8,7 @@ Report : timing
         -max_paths 1
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Mon Oct 25 03:26:09 2021
+Date   : Mon Nov  1 02:13:07 2021
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -28,11 +28,11 @@ Wire Load Model Mode: enclosed
   BitFusion          2000000               saed32hvt_ss0p95v125c
   BitFusion_DW01_add_2311
                      ForQA                 saed32hvt_ss0p95v125c
-  BitFusion_DW01_add_J169_48
+  BitFusion_DW01_add_15194
                      8000                  saed32hvt_ss0p95v125c
-  BitFusion_DW01_add_J159_8
+  BitFusion_DW01_add_14233
                      8000                  saed32hvt_ss0p95v125c
-  BitFusion_DW01_add_J180_0
+  BitFusion_DW01_add_14716
                      8000                  saed32hvt_ss0p95v125c
 
   Point                                                   Incr       Path
@@ -69,7 +69,7 @@ Wire Load Model Mode: enclosed
   add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_52_3/SUM[9] (BitFusion_DW01_add_2311)
                                                           0.00       2.39 r
   U269425/Y (AO222X1_HVT)                                 0.14       2.53 r
-  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[10] (BitFusion_DW01_add_J169_48)
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[10] (BitFusion_DW01_add_15194)
                                                           0.00       2.53 r
   add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U183/Y (NOR2X1_HVT)
                                                           0.13       2.66 f
@@ -83,9 +83,9 @@ Wire Load Model Mode: enclosed
                                                           0.12       3.06 r
   add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U185/Y (XNOR2X2_HVT)
                                                           0.13       3.20 r
-  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[12] (BitFusion_DW01_add_J169_48)
+  add_3_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[12] (BitFusion_DW01_add_15194)
                                                           0.00       3.20 r
-  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[12] (BitFusion_DW01_add_J159_8)
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[12] (BitFusion_DW01_add_14233)
                                                           0.00       3.20 r
   add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U64/Y (NAND2X0_HVT)
                                                           0.07       3.27 f
@@ -99,9 +99,9 @@ Wire Load Model Mode: enclosed
                                                           0.03       3.61 f
   add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U162/Y (XOR2X2_HVT)
                                                           0.13       3.74 r
-  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[14] (BitFusion_DW01_add_J159_8)
+  add_1_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[14] (BitFusion_DW01_add_14233)
                                                           0.00       3.74 r
-  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[14] (BitFusion_DW01_add_J180_0)
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/B[14] (BitFusion_DW01_add_14716)
                                                           0.00       3.74 r
   add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U47/Y (NOR2X0_HVT)
                                                           0.11       3.86 f
@@ -115,7 +115,7 @@ Wire Load Model Mode: enclosed
                                                           0.12       4.36 r
   add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/U162/Y (XNOR2X2_HVT)
                                                           0.13       4.49 r
-  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[19] (BitFusion_DW01_add_J180_0)
+  add_0_root_add_0_root_BitFusion_column_11/PE_5/ADDER_TREE/add_73_4/SUM[19] (BitFusion_DW01_add_14716)
                                                           0.00       4.49 r
   U191096/Y (AND2X1_HVT)                                  0.07       4.56 r
   BitFusion_column_11/PE_reg_5/PE_sum_out_reg[19]/D (DFFX1_HVT)
