@@ -24,6 +24,7 @@ set SOURCE_FILES {
     ./HA.v
     ./FA.v
 	./accumulator.v
+	./ACC_register.v
 	./bitbrick_shift.v
 	./bitbrick.v
 	./BitFusion_column.v

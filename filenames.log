@@ -85,6 +85,7 @@
 /home/espanol/RSSA_DC/bitfusion/HA.v
 /home/espanol/RSSA_DC/bitfusion/FA.v
 /home/espanol/RSSA_DC/bitfusion/accumulator.v
+/home/espanol/RSSA_DC/bitfusion/ACC_register.v
 /home/espanol/RSSA_DC/bitfusion/bitbrick_shift.v
 /home/espanol/RSSA_DC/bitfusion/bitbrick.v
 /home/espanol/RSSA_DC/bitfusion/BitFusion_column.v

@@ -20,11 +20,12 @@ module Weight_MUX_REG(
     
     input [31:0] buffer,
 //    output reg [1:0] input_bitwidth,    
-    output [31:0] sorted_data
+    output reg [31:0] sorted_data
 );
-  
-    assign sorted_data = reset ? 32'b0 : (input_bitwidth == 2'b00 ? buffer : (state == 2'b00 ? (input_bitwidth == 2'b01 ? { buffer[15:8], buffer[15:8], buffer[7:0], buffer[7:0] } : { buffer[7:0], buffer[7:0], buffer[7:0], buffer[7:0] }) : (state == 2'b01 ? (input_bitwidth == 2'b01 ? { buffer[31:24], buffer[31:24], buffer[23:16], buffer[23:16] } : { buffer[15:8], buffer[15:8], buffer[15:8], buffer[15:8] }) : (state == 2'b10 ? { buffer[23:16], buffer[23:16], buffer[23:16], buffer[23:16] } : { buffer[31:24], buffer[31:24], buffer[31:24], buffer[31:24] }) ) ) );
-  
+
+    always @ (posedge clk)
+        sorted_data <= reset ? 32'b0 : (input_bitwidth == 2'b00 ? buffer : (state == 2'b00 ? (input_bitwidth == 2'b01 ? { buffer[15:8], buffer[15:8], buffer[7:0], buffer[7:0] } : { buffer[7:0], buffer[7:0], buffer[7:0], buffer[7:0] }) : (state == 2'b01 ? (input_bitwidth == 2'b01 ? { buffer[31:24], buffer[31:24], buffer[23:16], buffer[23:16] } : { buffer[15:8], buffer[15:8], buffer[15:8], buffer[15:8] }) : (state == 2'b10 ? { buffer[23:16], buffer[23:16], buffer[23:16], buffer[23:16] } : { buffer[31:24], buffer[31:24], buffer[31:24], buffer[31:24] }) ) ) );
+
     /* reg [1:0] state; */
     /* always @ (posedge clk) */
     /* if (reset) begin */

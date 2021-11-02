@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version N-2017.09-SP3 for linux64 -- Jan 18, 2018
-#@ # Date:   Mon Nov  1 22:23:45 2021
+#@ # Date:   Tue Nov  2 19:37:12 2021
 #@ # Run by: espanol@friday
 #@ 
 
@@ -6653,6 +6653,7 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@     ./HA.v
 #@     ./FA.v
 #@ 	./accumulator.v
+#@ 	./ACC_register.v
 #@ 	./bitbrick_shift.v
 #@ 	./bitbrick.v
 #@ 	./BitFusion_column.v
@@ -6710,3 +6711,5 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ #exit
 #@ # -- End source /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 
+:q
+ls

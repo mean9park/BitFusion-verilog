@@ -19,10 +19,11 @@ module Input_MUX_REG(
     input [1:0] weight_bitwidth,
     
     input [31:0] buffer, 
-    output [31:0] sorted_data
+    output reg [31:0] sorted_data
 );
 
-    assign sorted_data = reset ? 32'b0 : (weight_bitwidth == 2'b00 ? buffer : (state == 2'b00 ? (weight_bitwidth == 2'b01 ? {  {2{buffer[15:14]}}, {2{buffer[7:6]}}, {2{buffer[13:12]}}, {2{buffer[5:4]}}, {2{buffer[11:10]}}, {2{buffer[3:2]}}, {2{buffer[9:8]}}, {2{buffer[1:0]}} } : { {4{buffer[7:6]}}, {4{buffer[5:4]}}, {4{buffer[3:2]}}, {4{buffer[1:0]}} }) : (state == 2'b01 ? (weight_bitwidth == 2'b01 ? { {2{buffer[31:30]}}, {2{buffer[23:22]}}, {2{buffer[29:28]}}, {2{buffer[21:20]}}, {2{buffer[27:26]}}, {2{buffer[19:18]}}, {2{buffer[25:24]}}, {2{buffer[17:16]}}  } : {  {4{buffer[15:14]}}, {4{buffer[13:12]}}, {4{buffer[11:10]}}, {4{buffer[9:8]}} }) : (state == 2'b10 ? {  {4{buffer[23:22]}}, {4{buffer[21:20]}}, {4{buffer[19:18]}}, {4{buffer[17:16]}}  } : {  {4{buffer[31:30]}}, {4{buffer[29:28]}}, {4{buffer[27:26]}}, {4{buffer[25:24]}}  }) ) ) );
+    always @ (posedge clk)
+        sorted_data <= reset ? 32'b0 : (weight_bitwidth == 2'b00 ? buffer : (state == 2'b00 ? (weight_bitwidth == 2'b01 ? {  {2{buffer[15:14]}}, {2{buffer[7:6]}}, {2{buffer[13:12]}}, {2{buffer[5:4]}}, {2{buffer[11:10]}}, {2{buffer[3:2]}}, {2{buffer[9:8]}}, {2{buffer[1:0]}} } : { {4{buffer[7:6]}}, {4{buffer[5:4]}}, {4{buffer[3:2]}}, {4{buffer[1:0]}} }) : (state == 2'b01 ? (weight_bitwidth == 2'b01 ? { {2{buffer[31:30]}}, {2{buffer[23:22]}}, {2{buffer[29:28]}}, {2{buffer[21:20]}}, {2{buffer[27:26]}}, {2{buffer[19:18]}}, {2{buffer[25:24]}}, {2{buffer[17:16]}}  } : {  {4{buffer[15:14]}}, {4{buffer[13:12]}}, {4{buffer[11:10]}}, {4{buffer[9:8]}} }) : (state == 2'b10 ? {  {4{buffer[23:22]}}, {4{buffer[21:20]}}, {4{buffer[19:18]}}, {4{buffer[17:16]}}  } : {  {4{buffer[31:30]}}, {4{buffer[29:28]}}, {4{buffer[27:26]}}, {4{buffer[25:24]}}  }) ) ) );
 
 
     /* reg [1:0] state; */
