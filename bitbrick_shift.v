@@ -2,8 +2,8 @@
 
 module bitbrick_shift(
     input [5:0] p,
-    input [1:0] signal,
-    output [7:0] product
+    input [3:0] signal,
+    output [15:0] product
 );
 
 //    output is 6bit and the maximum shift value is 4bit
@@ -16,6 +16,6 @@ module bitbrick_shift(
 //    Therefore, here, the number of bit of product is just 16bit which is 12bit(shift) + 4bit(output bit)
 
     //sign extension and shift it
-    assign product = { {2{p[5]}}, p } << (signal*2);
+    assign product = { {10{p[5]}}, p } << (signal);
     
 endmodule

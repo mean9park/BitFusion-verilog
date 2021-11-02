@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version N-2017.09-SP3 for linux64 -- Jan 18, 2018
-#@ # Date:   Mon Nov  1 01:05:15 2021
+#@ # Date:   Mon Nov  1 22:23:45 2021
 #@ # Run by: espanol@friday
 #@ 
 
@@ -6683,27 +6683,29 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ 	file mkdir $design_dir
 #@ }
 #@ 
+#@ set_dont_touch (get_designs bitbrick)
 #@ # set_dont_touch (get_designs signed_3bit_MUL)
-#@ set_dont_touch (get_designs BitFusion)
+#@ # set_dont_touch (get_designs BitFusion)
 #@ 
 #@ # set current_design top
 #@ # link
 #@ 
 #@ create_clock clk -period 3
 #@ 
-#@ ungroup -all#@ 
+#@ ungroup -all -flatten
 #@ 
-#@ report_timing > $fin#@ # compile
+#@ compile_ultra
+#@ # compile
 #@ 
 #@ 
-#@ report_timing > $final_reports_dir/not_touch_timing.txt
-#@ sh cat $final_reports_dir/not_touch_timing.txt
+#@ report_timing > $final_reports_dir/timing.txt
+#@ sh cat $final_reports_dir/timing.txt
 #@ 
-#@ report_area > $final_reports_dir/not_touch_area.txt
-#@ sh cat $final_reports_dir/not_touch_area.txt
+#@ report_area > $final_reports_dir/area.txt
+#@ sh cat $final_reports_dir/area.txt
 #@ 
-#@ report_power > $final_reports_dir/not_touch_power.txt
-#@ sh cat $final_reports_dir/not_touch_power.txt
+#@ report_power > $final_reports_dir/power.txt
+#@ sh cat $final_reports_dir/power.txt
 #@ 
 #@ #exit
 #@ # -- End source /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl

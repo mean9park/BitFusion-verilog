@@ -54,8 +54,9 @@ if { ! [ file exists $design_dir] } {
 	file mkdir $design_dir
 }
 
+set_dont_touch (get_designs bitbrick)
 # set_dont_touch (get_designs signed_3bit_MUL)
-set_dont_touch (get_designs BitFusion)
+# set_dont_touch (get_designs BitFusion)
 
 # set current_design top
 # link
@@ -68,13 +69,13 @@ compile_ultra
 # compile
 
 
-report_timing > $final_reports_dir/not_touch_timing.txt
-sh cat $final_reports_dir/not_touch_timing.txt
+report_timing > $final_reports_dir/timing.txt
+sh cat $final_reports_dir/timing.txt
 
-report_area > $final_reports_dir/not_touch_area.txt
-sh cat $final_reports_dir/not_touch_area.txt
+report_area > $final_reports_dir/area.txt
+sh cat $final_reports_dir/area.txt
 
-report_power > $final_reports_dir/not_touch_power.txt
-sh cat $final_reports_dir/not_touch_power.txt
+report_power > $final_reports_dir/power.txt
+sh cat $final_reports_dir/power.txt
 
 #exit

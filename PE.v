@@ -13,8 +13,7 @@ module PE(
     input [3:0] sign_x,
     input [3:0] sign_y,    
     
-    input [31:0] signal,
-    input [7:0] sum_signal,
+    input [63:0] signal,
         
     input [19:0] previous_sum,
     
@@ -24,53 +23,49 @@ module PE(
     
     wire [5:0] p [15:0];
    
-    wire [7:0] p_shift_0, p_shift_1, p_shift_2, p_shift_3,
+    wire [15:0] p_shift_0, p_shift_1, p_shift_2, p_shift_3,
     p_shift_4, p_shift_5, p_shift_6, p_shift_7,
     p_shift_8, p_shift_9, p_shift_10, p_shift_11,
     p_shift_12, p_shift_13, p_shift_14, p_shift_15;
     
     bitbrick BB1(.clk(clk), .reset(reset), .x(x[1:0]), .y(y[1:0]), .sign_x(sign_x[0]), .sign_y(sign_y[0]), .p(p[0]));
-    bitbrick_shift BBS1(.p(p[0]), .signal(signal[1:0]), .product(p_shift_0));
+    bitbrick_shift BBS1(.p(p[0]), .signal(signal[3:0]), .product(p_shift_0));
     bitbrick BB2(.clk(clk), .reset(reset), .x(x[3:2]), .y(y[3:2]), .sign_x(sign_x[0]), .sign_y(sign_y[1]), .p(p[1]));
-    bitbrick_shift BBS2(.p(p[1]), .signal(signal[3:2]), .product(p_shift_1));
+    bitbrick_shift BBS2(.p(p[1]), .signal(signal[7:4]), .product(p_shift_1));
     bitbrick BB3(.clk(clk), .reset(reset), .x(x[5:4]), .y(y[5:4]), .sign_x(sign_x[0]), .sign_y(sign_y[2]), .p(p[2]));
-    bitbrick_shift BBS3(.p(p[2]), .signal(signal[5:4]), .product(p_shift_2));
+    bitbrick_shift BBS3(.p(p[2]), .signal(signal[11:8]), .product(p_shift_2));
     bitbrick BB4(.clk(clk), .reset(reset), .x(x[7:6]), .y(y[7:6]), .sign_x(sign_x[0]), .sign_y(sign_y[3]), .p(p[3]));
-    bitbrick_shift BBS4(.p(p[3]), .signal(signal[7:6]), .product(p_shift_3));
+    bitbrick_shift BBS4(.p(p[3]), .signal(signal[15:12]), .product(p_shift_3));
     
     bitbrick BB5(.clk(clk), .reset(reset), .x(x[9:8]), .y(y[9:8]), .sign_x(sign_x[1]), .sign_y(sign_y[0]), .p(p[4]));
-    bitbrick_shift BBS5(.p(p[4]), .signal(signal[9:8]), .product(p_shift_4));
+    bitbrick_shift BBS5(.p(p[4]), .signal(signal[19:16]), .product(p_shift_4));
     bitbrick BB6(.clk(clk), .reset(reset), .x(x[11:10]), .y(y[11:10]), .sign_x(sign_x[1]), .sign_y(sign_y[1]), .p(p[5]));
-    bitbrick_shift BBS6(.p(p[5]), .signal(signal[11:10]), .product(p_shift_5));
+    bitbrick_shift BBS6(.p(p[5]), .signal(signal[23:20]), .product(p_shift_5));
     bitbrick BB7(.clk(clk), .reset(reset), .x(x[13:12]), .y(y[13:12]), .sign_x(sign_x[1]), .sign_y(sign_y[2]), .p(p[6]));
-    bitbrick_shift BBS7(.p(p[6]), .signal(signal[13:12]), .product(p_shift_6));
+    bitbrick_shift BBS7(.p(p[6]), .signal(signal[27:24]), .product(p_shift_6));
     bitbrick BB8(.clk(clk), .reset(reset), .x(x[15:14]), .y(y[15:14]), .sign_x(sign_x[1]), .sign_y(sign_y[3]), .p(p[7]));
-    bitbrick_shift BBS8(.p(p[7]), .signal(signal[15:14]), .product(p_shift_7));
+    bitbrick_shift BBS8(.p(p[7]), .signal(signal[31:28]), .product(p_shift_7));
     
     bitbrick BB9(.clk(clk), .reset(reset), .x(x[17:16]), .y(y[17:16]), .sign_x(sign_x[2]), .sign_y(sign_y[0]), .p(p[8]));
-    bitbrick_shift BBS9(.p(p[8]), .signal(signal[17:16]), .product(p_shift_8));
+    bitbrick_shift BBS9(.p(p[8]), .signal(signal[35:32]), .product(p_shift_8));
     bitbrick BB10(.clk(clk), .reset(reset), .x(x[19:18]), .y(y[19:18]), .sign_x(sign_x[2]), .sign_y(sign_y[1]), .p(p[9]));
-    bitbrick_shift BBS10(.p(p[9]), .signal(signal[19:18]), .product(p_shift_9));
+    bitbrick_shift BBS10(.p(p[9]), .signal(signal[39:36]), .product(p_shift_9));
     bitbrick BB11(.clk(clk), .reset(reset), .x(x[21:20]), .y(y[21:20]), .sign_x(sign_x[2]), .sign_y(sign_y[2]), .p(p[10]));
-    bitbrick_shift BBS11(.p(p[10]), .signal(signal[21:20]), .product(p_shift_10));
+    bitbrick_shift BBS11(.p(p[10]), .signal(signal[43:40]), .product(p_shift_10));
     bitbrick BB12(.clk(clk), .reset(reset), .x(x[23:22]), .y(y[23:22]), .sign_x(sign_x[2]), .sign_y(sign_y[3]), .p(p[11]));
-    bitbrick_shift BBS12(.p(p[11]), .signal(signal[23:22]), .product(p_shift_11));
+    bitbrick_shift BBS12(.p(p[11]), .signal(signal[47:44]), .product(p_shift_11));
     
     bitbrick BB13(.clk(clk), .reset(reset), .x(x[25:24]), .y(y[25:24]), .sign_x(sign_x[3]), .sign_y(sign_y[0]), .p(p[12]));
-    bitbrick_shift BBS13(.p(p[12]), .signal(signal[25:24]), .product(p_shift_12));
+    bitbrick_shift BBS13(.p(p[12]), .signal(signal[51:48]), .product(p_shift_12));
     bitbrick BB14(.clk(clk), .reset(reset), .x(x[27:26]), .y(y[27:26]), .sign_x(sign_x[3]), .sign_y(sign_y[1]), .p(p[13]));
-    bitbrick_shift BBS14(.p(p[13]), .signal(signal[27:26]), .product(p_shift_13));
+    bitbrick_shift BBS14(.p(p[13]), .signal(signal[55:52]), .product(p_shift_13));
     bitbrick BB15(.clk(clk), .reset(reset), .x(x[29:28]), .y(y[29:28]), .sign_x(sign_x[3]), .sign_y(sign_y[2]), .p(p[14]));
-    bitbrick_shift BBS15(.p(p[14]), .signal(signal[29:28]), .product(p_shift_14));
+    bitbrick_shift BBS15(.p(p[14]), .signal(signal[59:56]), .product(p_shift_14));
     bitbrick BB16(.clk(clk), .reset(reset), .x(x[31:30]), .y(y[31:30]), .sign_x(sign_x[3]), .sign_y(sign_y[3]), .p(p[15]));
-    bitbrick_shift BBS16(.p(p[15]), .signal(signal[31:30]), .product(p_shift_15));
+    bitbrick_shift BBS16(.p(p[15]), .signal(signal[63:60]), .product(p_shift_15));
     
     
     PE_adder ADDER_TREE(
-    .sum_signal_1(sum_signal[1:0]),
-    .sum_signal_2(sum_signal[3:2]),
-    .sum_signal_3(sum_signal[5:4]),
-    .sum_signal_4(sum_signal[7:6]),
 
     .p_shift_0(p_shift_0), 
     .p_shift_1(p_shift_1), 
