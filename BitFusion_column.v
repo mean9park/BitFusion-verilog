@@ -17,7 +17,7 @@ module BitFusion_column(
     input [3:0] sign_y,
     input [1:0] input_bitwidth,
     input [1:0] state,
-    input [63:0] signal,
+    input [47:0] signal,
     
     output [27:0] total_output
 );

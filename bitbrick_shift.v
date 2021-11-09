@@ -2,7 +2,7 @@
 
 module bitbrick_shift(
     input [5:0] p,
-    input [3:0] signal,
+    input [2:0] signal,
     output [15:0] product
 );
 
@@ -16,6 +16,6 @@ module bitbrick_shift(
 //    Therefore, here, the number of bit of product is just 16bit which is 12bit(shift) + 4bit(output bit)
 
     //sign extension and shift it
-    assign product = { {10{p[5]}}, p } << (signal);
+    assign product = { {10{p[5]}}, p } << (signal*2);
     
 endmodule

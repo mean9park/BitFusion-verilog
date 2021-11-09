@@ -114,10 +114,28 @@ Current design is now 'BitFusion'.
 Information: Building the design 'BUF_32bit'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'Input_MUX_REG'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Input_MUX_REG line 25 in file
+		'./Input_MUX_REG.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   sorted_data_reg   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
 Presto compilation completed successfully.
 Information: Building the design 'BitFusion_column'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'Weight_MUX_REG'. (HDL-193)
+
+Inferred memory devices in process
+	in routine Weight_MUX_REG line 25 in file
+		'./Weight_MUX_REG.v'.
+===============================================================================
+|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
+===============================================================================
+|   sorted_data_reg   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
+===============================================================================
 Presto compilation completed successfully.
 Information: Building the design 'PE'. (HDL-193)
 Presto compilation completed successfully.
@@ -38442,6 +38460,12 @@ Threshold voltage group cell usage:
   Beginning Mapping Optimizations  (Ultra High effort)
   -------------------------------
   Mapping Optimization (Phase 1)
+  Mapping Optimization (Phase 2)
+  Mapping Optimization (Phase 3)
+  Mapping Optimization (Phase 4)
+  Mapping Optimization (Phase 5)
+  Mapping Optimization (Phase 6)
+  Mapping Optimization (Phase 7)
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -38489,6 +38513,94 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 31)
   Global Optimization (Phase 32)
   Global Optimization (Phase 33)
+  Mapping 'BitFusion_DP_OP_19552J1_233_7274_3'
+  Mapping 'BitFusion_DP_OP_19520J1_201_7274_3'
+  Mapping 'BitFusion_DP_OP_19568J1_249_7274_3'
+  Mapping 'BitFusion_DP_OP_19616J1_297_7274_3'
+  Mapping 'BitFusion_DP_OP_19584J1_265_7274_3'
+  Mapping 'BitFusion_DP_OP_19504J1_185_7274_3'
+  Mapping 'BitFusion_DP_OP_19670J1_351_7274_5'
+  Mapping 'BitFusion_DP_OP_19675J1_356_7274_5'
+  Mapping 'BitFusion_DP_OP_19666J1_347_7274_5'
+  Mapping 'BitFusion_DP_OP_19537J1_218_5366_3'
+  Mapping 'BitFusion_DP_OP_19680J1_361_7274_5'
+  Mapping 'BitFusion_DP_OP_19671J1_352_7274_5'
+  Mapping 'BitFusion_DP_OP_19676J1_357_7274_5'
+  Mapping 'BitFusion_DP_OP_19521J1_202_5366_3'
+  Mapping 'BitFusion_DP_OP_19547J1_228_7274_3'
+  Mapping 'BitFusion_DP_OP_19542J1_223_7274_3'
+  Mapping 'BitFusion_DP_OP_19515J1_196_7274_3'
+  Mapping 'BitFusion_DP_OP_19553J1_234_5366_3'
+  Mapping 'BitFusion_DP_OP_19563J1_244_7274_3'
+  Mapping 'BitFusion_DP_OP_19510J1_191_7274_3'
+  Mapping 'BitFusion_DP_OP_19565J1_246_7274_3'
+  Mapping 'BitFusion_DP_OP_19561J1_242_7274_3'
+  Mapping 'BitFusion_DP_OP_19557J1_238_7274_3'
+  Mapping 'BitFusion_DP_OP_19556J1_237_7274_3'
+  Mapping 'BitFusion_DP_OP_19555J1_236_7274_3'
+  Mapping 'BitFusion_DP_OP_19550J1_231_7274_3'
+  Mapping 'BitFusion_DP_OP_19549J1_230_7274_3'
+  Mapping 'BitFusion_DP_OP_19543J1_224_7274_3'
+  Mapping 'BitFusion_DP_OP_19541J1_222_7274_3'
+  Mapping 'BitFusion_DP_OP_19540J1_221_7274_3'
+  Mapping 'BitFusion_DP_OP_19538J1_219_7274_3'
+  Mapping 'BitFusion_DP_OP_19517J1_198_7274_3'
+  Mapping 'BitFusion_DP_OP_19516J1_197_7274_3'
+  Mapping 'BitFusion_DP_OP_19514J1_195_7274_3'
+  Mapping 'BitFusion_DP_OP_19519J1_200_7274_3'
+  Mapping 'BitFusion_DP_OP_19518J1_199_7274_3'
+  Mapping 'BitFusion_DP_OP_19548J1_229_7274_3'
+  Mapping 'BitFusion_DP_OP_19513J1_194_7274_3'
+  Mapping 'BitFusion_DP_OP_19511J1_192_7274_3'
+  Mapping 'BitFusion_DP_OP_19509J1_190_7274_3'
+  Mapping 'BitFusion_DP_OP_19506J1_187_7274_3'
+  Mapping 'BitFusion_DP_OP_19507J1_188_7274_3'
+  Mapping 'BitFusion_DP_OP_19564J1_245_7274_3'
+  Mapping 'BitFusion_DP_OP_19554J1_235_7274_3'
+  Mapping 'BitFusion_DP_OP_19512J1_193_7274_3'
+  Mapping 'BitFusion_DP_OP_19508J1_189_7274_3'
+  Mapping 'BitFusion_DP_OP_19567J1_248_7274_3'
+  Mapping 'BitFusion_DP_OP_19599J1_280_7274_3'
+  Mapping 'BitFusion_DP_OP_19591J1_272_7274_3'
+  Mapping 'BitFusion_DP_OP_19578J1_259_7274_3'
+  Mapping 'BitFusion_DP_OP_19593J1_274_7274_3'
+  Mapping 'BitFusion_DP_OP_19579J1_260_7274_3'
+  Mapping 'BitFusion_DP_OP_19597J1_278_7274_3'
+  Mapping 'BitFusion_DP_OP_19576J1_257_7274_3'
+  Mapping 'BitFusion_DP_OP_19575J1_256_7274_3'
+  Mapping 'BitFusion_DP_OP_19589J1_270_7274_3'
+  Mapping 'BitFusion_DP_OP_19587J1_268_7274_3'
+  Mapping 'BitFusion_DP_OP_19571J1_252_7274_3'
+  Mapping 'BitFusion_DP_OP_19580J1_261_7274_3'
+  Mapping 'BitFusion_DP_OP_19583J1_264_7274_3'
+  Mapping 'BitFusion_DP_OP_19573J1_254_7274_3'
+  Mapping 'BitFusion_DP_OP_19582J1_263_7274_3'
+  Mapping 'BitFusion_DP_OP_19581J1_262_7274_3'
+  Mapping 'BitFusion_DP_OP_19545J1_226_7274_3'
+  Mapping 'BitFusion_DP_OP_19598J1_279_7274_3'
+  Mapping 'BitFusion_DP_OP_19577J1_258_7274_3'
+  Mapping 'BitFusion_DP_OP_19572J1_253_7274_3'
+  Mapping 'BitFusion_DP_OP_19494J1_175_7274_3'
+  Mapping 'BitFusion_DP_OP_19570J1_251_7274_3'
+  Mapping 'BitFusion_DP_OP_19574J1_255_7274_3'
+  Mapping 'BitFusion_DP_OP_19499J1_180_7274_3'
+  Mapping 'BitFusion_DP_OP_19559J1_240_7274_3'
+  Mapping 'BitFusion_DP_OP_19551J1_232_7274_3'
+  Mapping 'BitFusion_DP_OP_19546J1_227_7274_3'
+  Mapping 'BitFusion_DP_OP_19544J1_225_7274_3'
+  Mapping 'BitFusion_DP_OP_19539J1_220_7274_3'
+  Mapping 'BitFusion_DP_OP_19548J1_229_7274_4'
+  Mapping 'BitFusion_DP_OP_19587J1_268_7274_4'
+  Mapping 'BitFusion_DP_OP_19597J1_278_7274_4'
+  Mapping 'BitFusion_DP_OP_19601J1_282_5366_3'
+  Mapping 'BitFusion_DP_OP_19633J1_314_5366_3'
+  Mapping 'BitFusion_DP_OP_19495J1_176_7274_3'
+  Mapping 'BitFusion_DP_OP_19463J1_144_7274_3'
+  Mapping 'BitFusion_DP_OP_19447J1_128_7274_3'
+  Mapping 'BitFusion_DP_OP_19564J1_245_7274_4'
+  Mapping 'BitFusion_DP_OP_19567J1_248_7274_4'
+  Mapping 'BitFusion_DP_OP_19589J1_270_7274_4'
+  Mapping 'BitFusion_DP_OP_19587J1_268_7274_5'
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -38506,44 +38618,63 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:21:57 1044538.7      0.00       0.0     151.6                           14486036480.0000
-    0:21:57 1044538.7      0.00       0.0     151.6                           14486036480.0000
-    0:21:57 1044538.7      0.00       0.0     151.6                           14486036480.0000
-    0:21:58 1044534.9      0.00       0.0     151.6                           14485961728.0000
+    0:30:17 1054680.3      0.39     826.8     325.1                           16139414528.0000
+    0:31:32 1063881.6      0.31     644.4     333.5                           16358292480.0000
+    0:31:32 1063881.6      0.31     644.4     333.5                           16358292480.0000
+    0:31:33 1063882.4      0.31     644.4     333.5                           16358395904.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:25:06 1045521.2      0.00       0.0     285.0                           14473282560.0000
-    0:25:09 1045470.1      0.00       0.0     285.0                           14468936704.0000
-    0:25:21 1045401.8      0.00       0.0     284.9                           14466283520.0000
-    0:25:46 1045267.1      0.00       0.0     283.4                           14463924224.0000
-    0:25:48 1045250.3      0.00       0.0     283.4                           14463642624.0000
-    0:26:01 1045022.3      0.00       0.0     277.9                           14459450368.0000
-    0:26:06 1044929.6      0.00       0.0     277.9                           14458079232.0000
-    0:26:08 1044905.9      0.00       0.0     277.9                           14457700352.0000
-    0:26:20 1044735.2      0.00       0.0     277.9                           14454810624.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:11 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:12 1043895.7      0.00       0.0     257.8                           14000531456.0000
-    0:27:12 1043895.7      0.00       0.0     257.8                           14000531456.0000
+    0:34:43 1063686.9      0.31     643.5     333.5                           16333574144.0000
+    0:34:44 1063550.2      0.31     643.1     333.5                           16319945728.0000
+    0:34:48 1063486.7      0.31     643.1     333.5                           16313506816.0000
+    0:34:50 1063470.4      0.31     643.1     333.0                           16311975936.0000
+    0:34:53 1063394.9      0.31     642.6     329.6                           16305106944.0000
+    0:34:55 1062235.3      0.31     641.6     329.6                           16273837056.0000
+    0:34:58 1060457.8      0.31     639.2     329.6                           16223866880.0000
+    0:35:24 1059287.7      0.31     637.5     329.6                           16189634560.0000
+    0:35:35 1058708.0      0.31     637.3     314.2                           16173844480.0000
+    0:35:46 1058305.2      0.31     639.2     313.5                           16165787648.0000
+    0:35:48 1057905.2      0.31     642.1     313.5                           16155463680.0000
+    0:35:50 1057658.1      0.31     643.5     313.5                           16149206016.0000
+    0:35:52 1057375.5      0.31     644.3     312.1                           16142352384.0000
+    0:35:53 1057276.1      0.31     644.3     311.7                           16140106752.0000
+    0:36:09 1056786.9      0.31     644.5     310.4                           16131401728.0000
+    0:36:22 1056003.9      0.30     642.4     308.0                           16116143104.0000
+    0:36:25 1055973.4      0.30     640.1     307.3                           16110957568.0000
+    0:36:28 1055943.7      0.30     638.7     306.7                           16106735616.0000
+    0:36:32 1055914.2      0.30     637.5     305.9                           16101756928.0000
+    0:36:34 1055890.6      0.30     636.7     305.7                           16097978368.0000
+    0:36:37 1055864.9      0.30     636.0     304.9                           16094106624.0000
+    0:36:39 1055837.4      0.30     635.4     304.6                           16090411008.0000
+    0:36:42 1055818.4      0.30     635.0     304.4                           16087543808.0000
+    0:36:44 1055806.4      0.30     634.9     304.4                           16086012928.0000
+    0:36:46 1055790.4      0.30     634.4     304.2                           16083588096.0000
+    0:36:49 1055771.1      0.30     634.2     304.2                           16081148928.0000
+    0:36:51 1055760.7      0.30     634.0     303.9                           16079726592.0000
+    0:36:53 1055751.5      0.30     633.9     303.7                           16078610432.0000
+    0:37:34 1054580.4      0.30     623.5     303.1                           15717605376.0000
+    0:37:34 1054580.4      0.30     623.5     303.1                           15717605376.0000
+    0:38:42 1058156.5      0.30     529.8     348.3                           15792198656.0000
+    0:38:42 1058156.5      0.30     529.8     348.3                           15792198656.0000
+    0:38:42 1058169.0      0.27     528.3     347.6                           15792983040.0000
+    0:38:42 1058169.0      0.27     528.3     347.6                           15792983040.0000
+    0:39:54 1061790.3      0.27     474.6     403.7                           15871587328.0000
+    0:39:54 1061790.3      0.27     474.6     403.7                           15871587328.0000
+    0:43:13 1073153.3      0.17     349.6     552.6                           16140307456.0000
+    0:43:13 1073153.3      0.17     349.6     552.6                           16140307456.0000
+    0:45:31 1077354.8      0.16     279.8     648.3                           16230370304.0000
+    0:45:31 1077354.8      0.16     279.8     648.3                           16230370304.0000
+    0:47:03 1081711.6      0.13     244.8     716.8                           16332366848.0000
+    0:47:03 1081711.6      0.13     244.8     716.8                           16332366848.0000
+    0:49:17 1085830.7      0.11     210.9     811.4                           16430872576.0000
+    0:49:17 1085830.7      0.11     210.9     811.4                           16430872576.0000
+    0:50:52 1089176.6      0.10     180.7     992.6                           16517065728.0000
+    0:50:53 1089176.6      0.10     180.7     992.6                           16517065728.0000
+    0:51:55 1090794.4      0.09     175.1    1066.7                           16558010368.0000
 
 
   Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
@@ -38553,12 +38684,14 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:27:12 1043895.7      0.00       0.0     257.8                           14000531456.0000
+    0:51:55 1090794.4      0.09     175.1    1066.7                           16558010368.0000
   Global Optimization (Phase 34)
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
-    0:27:25 1044190.3      0.00       0.0       0.0                           14008338432.0000
-    0:27:25 1044190.3      0.00       0.0       0.0                           14008338432.0000
+    0:52:15 1091516.7      0.10     174.5       5.5 net1755319                16564911104.0000
+    0:52:19 1091835.9      0.09     173.9       0.0 BitFusion_column_2/PE_reg_16/PE_sum_out_reg[19]/D 16574361600.0000
+    0:52:19 1091840.5      0.09     173.8       0.0                           16574317568.0000
+    0:52:56 1093006.0      0.09     169.1      20.1                           16603693056.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -38571,7 +38704,7 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:27:25 1044190.3      0.00       0.0       0.0                           14008338432.0000
+    0:52:57 1093006.0      0.09     169.1      20.1                           16603693056.0000
   Global Optimization (Phase 37)
   Global Optimization (Phase 38)
   Global Optimization (Phase 39)
@@ -38588,44 +38721,173 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 50)
   Global Optimization (Phase 51)
   Global Optimization (Phase 52)
-    0:28:23 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:23 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:23 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:41 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:42 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:28:42 1043467.7      0.00       0.0       0.0                           13941006336.0000
+    0:54:46 1076101.4      0.12     200.1       0.1 BitFusion_column_5/PE_reg_16/PE_sum_out_reg[19]/D 15818729472.0000
+    0:54:47 1076272.9      0.11     194.7       0.1                           15826319360.0000
+    0:56:08 1079173.2      0.10     174.8      56.4                           15912116224.0000
+    0:56:09 1079173.2      0.10     174.8      56.4                           15912116224.0000
+    0:56:39 1078397.3      0.10     174.7      13.3                           15784422400.0000
+    0:56:39 1078397.3      0.10     174.7      13.3                           15784422400.0000
+    0:57:03 1079245.9      0.09     170.8      32.5                           15812057088.0000
+    0:57:03 1079245.9      0.09     170.8      32.5                           15812057088.0000
+    0:57:03 1079246.1      0.10     170.8      32.5                           15812084736.0000
+    0:57:04 1079246.1      0.10     170.8      32.5                           15812084736.0000
+    0:57:40 1080786.0      0.09     164.1      85.9                           15856747520.0000
+    0:57:40 1080786.0      0.09     164.1      85.9                           15856747520.0000
+    0:59:33 1085313.6      0.07     118.9     156.6                           15989224448.0000
+    0:59:33 1085313.6      0.07     118.9     156.6                           15989224448.0000
+    1:00:19 1086720.0      0.06     114.9     211.7                           16035346432.0000
+    1:00:19 1086720.0      0.06     114.9     211.7                           16035346432.0000
+    1:00:56 1087913.5      0.06     106.1     234.6                           16071860224.0000
+    1:00:56 1087913.5      0.06     106.1     234.6                           16071860224.0000
+    1:01:39 1089407.3      0.06     102.9     281.8                           16111963136.0000
+    1:01:40 1089407.3      0.06     102.9     281.8                           16111963136.0000
+    1:02:14 1090385.5      0.06      95.4     293.5                           16137596928.0000
+    1:02:14 1090385.5      0.06      95.4     293.5                           16137596928.0000
+    1:02:34 1091063.8      0.05      93.7     344.6                           16156694528.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:28:49 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:29:03 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:29:03 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:29:03 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:29:20 1043467.7      0.00       0.0       0.0                           13941006336.0000
-    0:30:00 1043474.1      0.00       0.0       0.0 net1687431                13941074944.0000
-    0:30:00 1043474.1      0.00       0.0       0.0                           13941074944.0000
-    0:30:00 1043474.1      0.00       0.0       0.0                           13941074944.0000
-    0:30:00 1043474.1      0.00       0.0       0.0                           13941074944.0000
-    0:30:00 1043474.1      0.00       0.0       0.0                           13941074944.0000
-    0:30:12 1043470.5      0.00       0.0       0.0                           13941137408.0000
+    1:02:47 1090988.3      0.05      93.7     344.6                           16155196416.0000
+    1:03:25 1083897.5      0.12     116.6      90.5                           15894265856.0000
+    1:03:29 1083989.5      0.07     109.0      90.5                           15899708416.0000
+    1:03:30 1083970.4      0.07     109.0      90.5                           15899491328.0000
+    1:03:30 1083970.4      0.07     109.0      90.5                           15899491328.0000
+    1:03:55 1083827.3      0.08     110.4      37.2                           15879584768.0000
+    1:03:57 1083612.1      0.08     110.2      37.2                           15876779008.0000
+    1:04:10 1083462.9      0.08     110.0      37.2                           15875035136.0000
+    1:04:18 1083203.7      0.08     110.0      36.6                           15870590976.0000
+    1:04:22 1082978.5      0.08     110.2      36.3                           15866753024.0000
+    1:04:26 1082757.4      0.08     110.7      36.3                           15863166976.0000
+    1:04:28 1082658.3      0.07     110.6      36.3                           15861849088.0000
+    1:04:30 1082537.0      0.07     110.9      36.3                           15859860480.0000
+    1:04:32 1082423.7      0.07     111.1      36.3                           15857900544.0000
+    1:04:39 1082176.9      0.07     111.2      32.5                           15853863936.0000
+    1:04:43 1082098.4      0.07     111.2      32.5                           15849472000.0000
+    1:04:47 1082059.3      0.07     111.1      32.5                           15843418112.0000
+    1:04:51 1082001.1      0.07     111.0      32.4                           15831021568.0000
+    1:04:55 1081931.2      0.07     110.7      32.4                           15819648000.0000
+    1:05:05 1082546.7      0.07     109.8      17.6 BitFusion_column_6/PE_reg_4/PE_sum_out_reg[15]/D 15831315456.0000
+    1:05:07 1082693.8      0.07     108.1      17.6 BitFusion_column_4/PE_reg_10/PE_sum_out_reg[18]/D 15841160192.0000
+    1:05:09 1082867.9      0.07     106.8      17.7 BitFusion_column_14/PE_reg_2/PE_sum_out_reg[18]/D 15851435008.0000
+    1:05:10 1083025.0      0.06     105.0      18.0 BitFusion_column_5/PE_reg_10/PE_sum_out_reg[19]/D 15859456000.0000
+    1:05:12 1083128.4      0.06     104.3      19.0 BitFusion_column_9/PE_reg_4/PE_sum_out_reg[16]/D 15864140800.0000
+    1:05:14 1083264.9      0.06     102.9      19.0 BitFusion_column_8/PE_reg_1/PE_sum_out_reg[15]/D 15869569024.0000
+    1:05:16 1083415.6      0.06     101.3      36.6 BitFusion_column_7/PE_reg_11/PE_sum_out_reg[18]/D 15883092992.0000
+    1:05:18 1083554.6      0.06      99.9      36.6 BitFusion_column_4/PE_reg_16/PE_sum_out_reg[18]/D 15890910208.0000
+    1:05:19 1083640.0      0.06      99.0      36.6 BitFusion_column_11/PE_reg_11/PE_sum_out_reg[17]/D 15893623808.0000
+    1:05:21 1083816.7      0.06      98.1      36.6 BitFusion_column_5/PE_reg_7/PE_sum_out_reg[18]/D 15901860864.0000
+    1:05:23 1083869.3      0.06      97.1      36.6 BitFusion_column_14/PE_reg_10/PE_sum_out_reg[17]/D 15904377856.0000
+    1:05:25 1084021.8      0.06      96.5      53.8 BitFusion_column_6/PE_reg_15/PE_sum_out_reg[19]/D 15917369344.0000
+    1:05:26 1084110.7      0.06      95.5      53.8 BitFusion_column_3/PE_reg_3/PE_sum_out_reg[17]/D 15921002496.0000
+    1:05:28 1084190.0      0.06      94.8      53.8 BitFusion_column_4/PE_reg_14/PE_sum_out_reg[15]/D 15926968320.0000
+    1:05:29 1084279.5      0.06      94.4      53.8 BitFusion_column_6/PE_reg_14/PE_sum_out_reg[14]/D 15931445248.0000
+    1:05:30 1084392.5      0.06      94.0      53.8 BitFusion_column_14/PE_reg_10/PE_sum_out_reg[17]/D 15938564096.0000
+    1:05:32 1084505.4      0.06      93.1      54.0 BitFusion_column_10/PE_reg_11/PE_sum_out_reg[15]/D 15943192576.0000
+    1:05:34 1084574.5      0.06      92.9      54.0 BitFusion_column_12/PE_reg_4/PE_sum_out_reg[19]/D 15945035776.0000
+    1:05:35 1084677.4      0.06      92.2      54.0 BitFusion_column_1/PE_reg_4/PE_sum_out_reg[17]/D 15949596672.0000
+    1:05:37 1084761.6      0.06      91.3      54.0 BitFusion_column_8/PE_reg_7/PE_sum_out_reg[17]/D 15953389568.0000
+    1:05:39 1084827.1      0.06      90.7      54.0 BitFusion_column_11/PE_reg_5/PE_sum_out_reg[17]/D 15957651456.0000
+    1:05:40 1084946.8      0.06      90.3      54.0 BitFusion_column_15/PE_reg_8/PE_sum_out_reg[18]/D 15963144192.0000
+    1:05:42 1085033.0      0.05      89.8      64.2 BitFusion_column_16/PE_reg_14/PE_sum_out_reg[13]/D 15967221760.0000
+    1:05:43 1085085.9      0.05      89.3      81.5 BitFusion_column_7/PE_reg_1/PE_sum_out_reg[17]/D 15971373056.0000
+    1:05:45 1085157.5      0.05      88.7      81.5 BitFusion_column_5/PE_reg_16/PE_sum_out_reg[18]/D 15974626304.0000
+    1:05:46 1085235.3      0.05      88.2      81.5 BitFusion_column_9/PE_reg_3/PE_sum_out_reg[19]/D 15977442304.0000
+    1:05:48 1085318.6      0.05      87.5      81.5 BitFusion_column_5/PE_reg_7/PE_sum_out_reg[18]/D 15983965184.0000
+    1:05:49 1085411.4      0.05      86.5      83.0 BitFusion_column_12/PE_reg_5/PE_sum_out_reg[14]/D 15987160064.0000
+    1:05:51 1085504.4      0.05      85.9      85.0 BitFusion_column_15/PE_reg_12/PE_sum_out_reg[17]/D 15992054784.0000
+    1:05:53 1085620.6      0.05      85.2      85.0 BitFusion_column_5/PE_reg_11/PE_sum_out_reg[18]/D 15999641600.0000
+    1:05:54 1085729.9      0.05      84.6      85.5 BitFusion_column_14/PE_reg_4/PE_sum_out_reg[15]/D 16005208064.0000
+    1:05:56 1085822.6      0.05      84.2      85.5 BitFusion_column_14/PE_reg_2/PE_sum_out_reg[18]/D 16009956352.0000
+    1:05:57 1085941.8      0.05      83.7      85.5 BitFusion_column_12/PE_reg_4/PE_sum_out_reg[19]/D 16016787456.0000
+    1:05:59 1086001.0      0.05      83.4      85.5 BitFusion_column_13/PE_reg_1/PE_sum_out_reg[15]/D 16018142208.0000
+    1:06:00 1086098.6      0.05      82.7      85.5 BitFusion_column_8/PE_reg_11/PE_sum_out_reg[19]/D 16023425024.0000
+    1:06:02 1086173.8      0.05      82.3      85.5 BitFusion_column_2/PE_reg_4/PE_sum_out_reg[18]/D 16026339328.0000
+    1:06:03 1086265.6      0.05      81.6      85.5 BitFusion_column_8/PE_reg_1/PE_sum_out_reg[15]/D 16031118336.0000
+    1:06:05 1086358.4      0.05      81.1      85.5 BitFusion_column_7/PE_reg_1/PE_sum_out_reg[17]/D 16034258944.0000
+    1:06:06 1086439.4      0.05      80.7      85.5 BitFusion_column_14/PE_reg_14/PE_sum_out_reg[15]/D 16037606400.0000
+    1:06:08 1086497.6      0.05      80.5      85.5 BitFusion_column_6/PE_reg_8/PE_sum_out_reg[16]/D 16038819840.0000
+    1:06:09 1086547.7      0.05      80.0      87.6 BitFusion_column_3/PE_reg_10/PE_sum_out_reg[14]/D 16042442752.0000
+    1:06:10 1086602.6      0.05      79.7      87.6 BitFusion_column_14/PE_reg_8/PE_sum_out_reg[16]/D 16046783488.0000
+    1:06:12 1086699.4      0.05      79.1      87.6 BitFusion_column_2/PE_reg_3/PE_sum_out_reg[12]/D 16050377728.0000
+    1:06:13 1086784.8      0.05      78.6      87.6 BitFusion_column_10/PE_reg_11/PE_sum_out_reg[15]/D 16054726656.0000
+    1:06:14 1086872.0      0.05      78.3      87.6 BitFusion_column_5/PE_reg_1/PE_sum_out_reg[18]/D 16057316352.0000
+    1:06:16 1086932.2      0.05      78.1      87.6 BitFusion_column_1/PE_reg_14/PE_sum_out_reg[17]/D 16058649600.0000
+    1:06:18 1086988.4      0.05      77.4       0.0 BitFusion_column_14/PE_reg_10/PE_sum_out_reg[17]/D 16055790592.0000
+    1:06:20 1087070.5      0.05      76.8       0.0 BitFusion_column_13/PE_reg_6/PE_sum_out_reg[19]/D 16058910720.0000
+    1:06:21 1087159.7      0.05      76.4       0.0 BitFusion_column_16/PE_reg_5/PE_sum_out_reg[15]/D 16063054848.0000
+    1:06:23 1087226.5      0.05      76.1       0.0 BitFusion_column_5/PE_reg_7/PE_sum_out_reg[18]/D 16066501632.0000
+    1:06:24 1087295.9      0.05      75.7       0.0 BitFusion_column_12/PE_reg_3/PE_sum_out_reg[14]/D 16069178368.0000
+    1:06:26 1087408.2      0.05      75.3       0.0 BitFusion_column_8/PE_reg_9/PE_sum_out_reg[19]/D 16076207104.0000
+    1:06:27 1087513.9      0.05      75.0       0.0 BitFusion_column_9/PE_reg_4/PE_sum_out_reg[19]/D 16081164288.0000
+    1:06:28 1087572.1      0.05      74.7       0.0 BitFusion_column_11/PE_reg_15/PE_sum_out_reg[15]/D 16083721216.0000
+    1:06:29 1087663.4      0.05      74.2       0.0 BitFusion_column_3/PE_reg_1/PE_sum_out_reg[14]/D 16086179840.0000
+    1:06:31 1087743.9      0.05      74.0       0.0 BitFusion_column_13/PE_reg_5/PE_sum_out_reg[14]/D 16090577920.0000
+    1:06:32 1087791.7      0.05      73.7       0.0 BitFusion_column_15/PE_reg_1/PE_sum_out_reg[18]/D 16093612032.0000
+    1:06:34 1087859.6      0.05      73.1       0.0 BitFusion_column_13/PE_reg_12/PE_sum_out_reg[16]/D 16096239616.0000
+    1:06:35 1087961.5      0.05      72.6       0.0 BitFusion_column_2/PE_reg_13/PE_sum_out_reg[18]/D 16100189184.0000
+    1:06:37 1088055.0      0.05      71.9       0.0 BitFusion_column_16/PE_reg_5/PE_sum_out_reg[16]/D 16105197568.0000
+    1:06:38 1088138.1      0.05      71.4       0.0 BitFusion_column_7/PE_reg_9/PE_sum_out_reg[14]/D 16109427712.0000
+    1:06:40 1088228.9      0.04      71.1       0.0 BitFusion_column_15/PE_reg_16/PE_sum_out_reg[14]/D 16112005120.0000
+    1:06:41 1088303.6      0.04      70.5       0.0 BitFusion_column_1/PE_reg_4/PE_sum_out_reg[18]/D 16113231872.0000
+    1:06:42 1088383.1      0.04      70.1       0.0 BitFusion_column_3/PE_reg_9/PE_sum_out_reg[17]/D 16114912256.0000
+    1:06:44 1088459.1      0.04      69.8       0.0 BitFusion_column_8/PE_reg_11/PE_sum_out_reg[19]/D 16118200320.0000
+    1:06:45 1088529.5      0.04      69.3       0.0 BitFusion_column_12/PE_reg_4/PE_sum_out_reg[19]/D 16122957824.0000
+    1:06:47 1088609.6      0.04      68.8       0.0 BitFusion_column_9/PE_reg_3/PE_sum_out_reg[19]/D 16125288448.0000
+    1:06:48 1088671.6      0.04      68.4       0.0 BitFusion_column_9/PE_reg_3/PE_sum_out_reg[19]/D 16127413248.0000
+    1:06:50 1088753.2      0.04      67.9       0.0 BitFusion_column_6/PE_reg_10/PE_sum_out_reg[19]/D 16132009984.0000
+    1:06:51 1088798.4      0.04      67.7       0.0 BitFusion_column_16/PE_reg_14/PE_sum_out_reg[13]/D 16133430272.0000
+    1:06:53 1088882.0      0.04      67.3       0.0 BitFusion_column_9/PE_reg_5/PE_sum_out_reg[17]/D 16135023616.0000
+    1:06:54 1088951.4      0.04      66.8       0.0 BitFusion_column_10/PE_reg_8/PE_sum_out_reg[15]/D 16137545728.0000
+    1:06:56 1089010.6      0.04      66.4       0.0 BitFusion_column_15/PE_reg_1/PE_sum_out_reg[14]/D 16140846080.0000
+    1:06:58 1089089.9      0.04      65.8       0.0 BitFusion_column_4/PE_reg_12/PE_sum_out_reg[10]/D 16144185344.0000
+    1:06:59 1089142.5      0.04      65.4       0.0 BitFusion_column_15/PE_reg_12/PE_sum_out_reg[14]/D 16146799616.0000
+    1:07:01 1089247.0      0.04      65.0       0.0 BitFusion_column_9/PE_reg_10/PE_sum_out_reg[12]/D 16152421376.0000
+    1:07:03 1089378.1      0.04      64.6       0.0 BitFusion_column_6/PE_reg_7/PE_sum_out_reg[11]/D 16155546624.0000
+    1:07:04 1089482.5      0.04      64.2       0.0 BitFusion_column_7/PE_reg_14/PE_sum_out_reg[14]/D 16160586752.0000
+    1:07:06 1089545.3      0.04      64.0       0.0 BitFusion_column_8/PE_reg_2/PE_sum_out_reg[17]/D 16163224576.0000
+    1:07:07 1089593.4      0.04      63.4       0.0 BitFusion_column_7/PE_reg_3/PE_sum_out_reg[17]/D 16165251072.0000
+    1:07:09 1089692.0      0.04      62.8       0.0 BitFusion_column_13/PE_reg_1/PE_sum_out_reg[15]/D 16170307584.0000
+    1:07:10 1089765.7      0.04      62.6       0.0 BitFusion_column_12/PE_reg_2/PE_sum_out_reg[19]/D 16173243392.0000
+    1:07:11 1089828.7      0.04      62.3       0.0 BitFusion_column_3/PE_reg_13/PE_sum_out_reg[17]/D 16177815552.0000
+    1:07:13 1089878.2      0.04      61.7       0.0 BitFusion_column_8/PE_reg_7/PE_sum_out_reg[17]/D 16179570688.0000
+    1:07:14 1089965.4      0.04      61.3       0.0 BitFusion_column_3/PE_reg_7/PE_sum_out_reg[17]/D 16182774784.0000
+    1:07:15 1090016.8      0.04      61.0       0.0 BitFusion_column_13/PE_reg_3/PE_sum_out_reg[19]/D 16183927808.0000
+    1:07:17 1090069.6      0.04      60.6       0.0 BitFusion_column_2/PE_reg_14/PE_sum_out_reg[15]/D 16186442752.0000
+    1:07:18 1090152.2      0.04      60.0       0.0 BitFusion_column_7/PE_reg_16/PE_sum_out_reg[18]/D 16192220160.0000
+    1:07:20 1090214.7      0.04      59.7       0.0 BitFusion_column_16/PE_reg_15/PE_sum_out_reg[17]/D 16194037760.0000
+    1:07:21 1090260.7      0.04      59.5       0.0 BitFusion_column_16/PE_reg_5/PE_sum_out_reg[16]/D 16195773440.0000
+    1:07:23 1090332.1      0.04      59.2       0.0 BitFusion_column_15/PE_reg_14/PE_sum_out_reg[15]/D 16197951488.0000
+    1:07:24 1090420.8      0.04      58.6       0.0 BitFusion_column_1/PE_reg_14/PE_sum_out_reg[17]/D 16200054784.0000
+    1:07:25 1090470.1      0.04      58.3       0.0 BitFusion_column_5/PE_reg_7/PE_sum_out_reg[18]/D 16202979328.0000
+    1:07:27 1090541.1      0.04      57.9       0.0 BitFusion_column_9/PE_reg_12/PE_sum_out_reg[16]/D 16205892608.0000
+    1:07:29 1090630.0      0.04      57.6       0.0 BitFusion_column_1/PE_reg_3/PE_sum_out_reg[18]/D 16208615424.0000
+    1:07:30 1090686.2      0.04      57.4       0.0 BitFusion_column_7/PE_reg_13/PE_sum_out_reg[18]/D 16211390464.0000
+    1:07:31 1090759.1      0.04      57.0       0.0 BitFusion_column_2/PE_reg_5/PE_sum_out_reg[17]/D 16212893696.0000
+    1:07:33 1090831.0      0.04      56.6       0.0 BitFusion_column_3/PE_reg_13/PE_sum_out_reg[17]/D 16215731200.0000
+    1:07:34 1090906.0      0.04      56.2       0.0 BitFusion_column_11/PE_reg_15/PE_sum_out_reg[18]/D 16216743936.0000
+    1:07:35 1090964.5      0.04      55.9       0.0 BitFusion_column_2/PE_reg_2/PE_sum_out_reg[15]/D 16219588608.0000
+    1:07:37 1091048.1      0.04      55.3       0.0 BitFusion_column_15/PE_reg_5/PE_sum_out_reg[12]/D 16220225536.0000
+    1:07:39 1091130.2      0.04      54.8       0.0 BitFusion_column_12/PE_reg_7/PE_sum_out_reg[18]/D 16224203776.0000
+    1:07:40 1091233.1      0.04      54.4       0.0 BitFusion_column_14/PE_reg_5/PE_sum_out_reg[15]/D 16227431424.0000
+    1:07:42 1091273.2      0.04      53.9       0.0 BitFusion_column_15/PE_reg_14/PE_sum_out_reg[12]/D 16228442112.0000
+    1:07:44 1091322.8      0.04      53.4       0.0 BitFusion_column_6/PE_reg_3/PE_sum_out_reg[19]/D 16230134784.0000
+    1:07:45 1091384.0      0.04      52.9       0.0 BitFusion_column_5/PE_reg_3/PE_sum_out_reg[19]/D 16233064448.0000
+    1:07:46 1091471.5      0.04      52.3       0.0 BitFusion_column_6/PE_reg_6/PE_sum_out_reg[17]/D 16235880448.0000
+    1:07:48 1091510.9      0.04      52.0       0.0 BitFusion_column_3/PE_reg_14/PE_sum_out_reg[15]/D 16236617728.0000
+    1:07:50 1091587.6      0.03      51.4       0.0 BitFusion_column_4/PE_reg_15/PE_sum_out_reg[19]/D 16238368768.0000
+    1:07:51 1091625.2      0.03      51.2       0.0 BitFusion_column_6/PE_reg_13/PE_sum_out_reg[15]/D 16239482880.0000
+    1:07:52 1091686.5      0.03      50.8       0.0 BitFusion_column_4/PE_reg_16/PE_sum_out_reg[18]/D 16240605184.0000
+    1:07:54 1091730.2      0.03      50.4       0.0 BitFusion_column_1/PE_reg_15/PE_sum_out_reg[11]/D 16242740224.0000
+    1:07:55 1091855.5      0.03      49.9       0.0 BitFusion_column_11/PE_reg_10/PE_sum_out_reg[15]/D 16245898240.0000
+    1:07:57 1091889.0      0.03      49.3       0.0 BitFusion_column_7/PE_reg_16/PE_sum_out_reg[18]/D 16247273472.0000
+    1:07:58 1091970.6      0.03      48.8       0.0 BitFusion_column_7/PE_reg_8/PE_sum_out_reg[17]/D 16249522176.0000
+    1:08:00 1092015.9      0.03      48.7       0.0                           16251864064.0000
+    1:09:38 1095167.7      0.02      18.6      25.6                           16352552960.0000
+    1:09:41 1095187.3      0.02      18.5      25.6                           16353999872.0000
+    1:09:43 1095205.6      0.02      18.1      25.6                           16356214784.0000
+    1:10:43 1091818.4      0.02      17.7     209.7                           16003057664.0000
 Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
 Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
 Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
@@ -38636,28 +38898,8 @@ Note: Symbol # after min delay cost means estimated hold TNS across all active s
 
   Optimization Complete
   ---------------------
-Warning: Design 'BitFusion' contains 21 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
-     Net 'clk': 5568 load(s), 1 driver(s)
-     Net 'sign_y[3]': 2117 load(s), 1 driver(s)
-     Net 'sign_y[2]': 2117 load(s), 1 driver(s)
-     Net 'sign_y[1]': 2117 load(s), 1 driver(s)
-     Net 'sign_y[0]': 2116 load(s), 1 driver(s)
-     Net 'signal[61]': 1037 load(s), 1 driver(s)
-     Net 'signal[57]': 1037 load(s), 1 driver(s)
-     Net 'signal[53]': 1037 load(s), 1 driver(s)
-     Net 'signal[49]': 1037 load(s), 1 driver(s)
-     Net 'signal[45]': 1037 load(s), 1 driver(s)
-     Net 'signal[41]': 1037 load(s), 1 driver(s)
-     Net 'signal[37]': 1037 load(s), 1 driver(s)
-     Net 'signal[33]': 1037 load(s), 1 driver(s)
-     Net 'signal[29]': 1037 load(s), 1 driver(s)
-     Net 'signal[25]': 1037 load(s), 1 driver(s)
-     Net 'signal[21]': 1037 load(s), 1 driver(s)
-     Net 'signal[17]': 1037 load(s), 1 driver(s)
-     Net 'signal[13]': 1037 load(s), 1 driver(s)
-     Net 'signal[9]': 1037 load(s), 1 driver(s)
-     Net 'signal[5]': 1037 load(s), 1 driver(s)
-     Net 'signal[1]': 1037 load(s), 1 driver(s)
+Warning: Design 'BitFusion' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+     Net 'clk': 14272 load(s), 1 driver(s)
   Loading target library 'saed32pll_ss0p95v125c_2p25v'
   Loading target library 'saed32io_fc_ss0p95v125c_2p25v'
 Information: State dependent leakage is now switched from off to on.
@@ -38667,7 +38909,7 @@ Information: Propagating switching activity (low effort zero delay simulation). 
 report_timing > $final_reports_dir/timing.txt
 sh cat $final_reports_dir/timing.txt
 Information: Updating design information... (UID-85)
-Warning: Design 'BitFusion' contains 21 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
+Warning: Design 'BitFusion' contains 1 high-fanout nets. A fanout number of 1000 will be used for delay calculations involving these nets. (TIM-134)
  
 ****************************************
 Report : timing
@@ -38676,7 +38918,7 @@ Report : timing
         -max_paths 1
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Mon Nov  1 22:56:09 2021
+Date   : Tue Nov  2 22:28:57 2021
 ****************************************
 
  # A fanout number of 1000 was used for high fanout net computations.
@@ -38684,9 +38926,9 @@ Date   : Mon Nov  1 22:56:09 2021
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
 Wire Load Model Mode: enclosed
 
-  Startpoint: BitFusion_column_11/PE_reg_12/PE_sum_out_reg[1]
+  Startpoint: Input_MUX_REG_4/sorted_data_reg[16]
               (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: BitFusion_column_11/PE_reg_13/PE_sum_out_reg[19]
+  Endpoint: BitFusion_column_9/PE_reg_4/PE_sum_out_reg[19]
             (rising edge-triggered flip-flop clocked by clk)
   Path Group: clk
   Path Type: max
@@ -38699,42 +38941,49 @@ Wire Load Model Mode: enclosed
   --------------------------------------------------------------------------
   clock clk (rise edge)                                   0.00       0.00
   clock network delay (ideal)                             0.00       0.00
-  BitFusion_column_11/PE_reg_12/PE_sum_out_reg[1]/CLK (DFFX1_HVT)
-                                                          0.00 #     0.00 r
-  BitFusion_column_11/PE_reg_12/PE_sum_out_reg[1]/Q (DFFX1_HVT)
-                                                          0.20       0.20 r
-  U436225/CO (FADDX1_HVT)                                 0.16       0.36 r
-  U436227/S (FADDX1_HVT)                                  0.24       0.60 f
-  U436244/S (FADDX1_HVT)                                  0.20       0.80 r
-  U436245/Y (NOR2X0_HVT)                                  0.11       0.91 f
-  U287259/Y (OAI21X1_HVT)                                 0.15       1.07 r
-  U436252/Y (AOI21X1_HVT)                                 0.15       1.21 f
-  U286864/Y (OAI21X1_HVT)                                 0.15       1.36 r
-  U436256/Y (AOI21X1_HVT)                                 0.15       1.51 f
-  U286863/Y (OAI21X1_HVT)                                 0.15       1.66 r
-  U436287/Y (AO21X1_HVT)                                  0.12       1.77 r
-  U436299/CO (FADDX1_HVT)                                 0.14       1.91 r
-  U436297/CO (FADDX1_HVT)                                 0.14       2.05 r
-  U436295/CO (FADDX1_HVT)                                 0.14       2.19 r
-  U436293/CO (FADDX1_HVT)                                 0.14       2.34 r
-  U436291/CO (FADDX1_HVT)                                 0.14       2.47 r
-  U287700/Y (XOR2X1_HVT)                                  0.16       2.63 f
-  U436290/Y (AND2X1_HVT)                                  0.07       2.71 f
-  BitFusion_column_11/PE_reg_13/PE_sum_out_reg[19]/D (DFFX1_HVT)
-                                                          0.00       2.71 f
-  data arrival time                                                  2.71
+  Input_MUX_REG_4/sorted_data_reg[16]/CLK (DFFX1_HVT)     0.00 #     0.00 r
+  Input_MUX_REG_4/sorted_data_reg[16]/Q (DFFX1_HVT)       0.23       0.23 f
+  U318493/Y (NBUFFX8_HVT)                                 0.09       0.32 f
+  U287996/Y (AND2X1_HVT)                                  0.07       0.39 f
+  U278309/Y (XOR3X2_HVT)                                  0.25       0.64 f
+  U278781/Y (XNOR2X2_HVT)                                 0.14       0.78 f
+  U278784/Y (NAND2X0_HVT)                                 0.05       0.83 r
+  U278783/Y (NAND2X0_HVT)                                 0.06       0.89 f
+  U480310/Y (NAND2X0_HVT)                                 0.07       0.97 r
+  U480313/Y (NAND3X0_HVT)                                 0.10       1.07 f
+  U480600/CO (FADDX1_HVT)                                 0.14       1.21 f
+  U480603/S (FADDX1_HVT)                                  0.21       1.42 r
+  U480617/CO (FADDX1_HVT)                                 0.16       1.57 r
+  U480628/CO (FADDX1_HVT)                                 0.17       1.74 r
+  U289546/Y (AO22X1_HVT)                                  0.11       1.85 r
+  U480990/CO (FADDX1_HVT)                                 0.15       2.00 r
+  U272355/Y (XOR3X2_HVT)                                  0.24       2.24 f
+  U272354/Y (AND2X1_HVT)                                  0.09       2.33 f
+  U272353/Y (AO21X1_HVT)                                  0.10       2.43 f
+  U272352/Y (NAND2X0_HVT)                                 0.04       2.47 r
+  U276764/Y (NAND2X0_HVT)                                 0.08       2.55 f
+  U276763/Y (NAND2X0_HVT)                                 0.07       2.61 r
+  U320475/Y (NAND2X0_HVT)                                 0.06       2.67 f
+  U481000/Y (AO21X1_HVT)                                  0.08       2.75 f
+  U258033/Y (INVX1_HVT)                                   0.03       2.77 r
+  U258031/Y (NAND2X0_HVT)                                 0.04       2.82 f
+  U258032/Y (NAND2X0_HVT)                                 0.05       2.87 r
+  U481003/Y (AND2X1_HVT)                                  0.07       2.94 r
+  BitFusion_column_9/PE_reg_4/PE_sum_out_reg[19]/D (DFFX1_HVT)
+                                                          0.00       2.94 r
+  data arrival time                                                  2.94
 
   clock clk (rise edge)                                   3.00       3.00
   clock network delay (ideal)                             0.00       3.00
-  BitFusion_column_11/PE_reg_13/PE_sum_out_reg[19]/CLK (DFFX1_HVT)
+  BitFusion_column_9/PE_reg_4/PE_sum_out_reg[19]/CLK (DFFX1_HVT)
                                                           0.00       3.00 r
-  library setup time                                     -0.07       2.93
-  data required time                                                 2.93
+  library setup time                                     -0.08       2.92
+  data required time                                                 2.92
   --------------------------------------------------------------------------
-  data required time                                                 2.93
-  data arrival time                                                 -2.71
+  data required time                                                 2.92
+  data arrival time                                                 -2.94
   --------------------------------------------------------------------------
-  slack (MET)                                                        0.23
+  slack (VIOLATED)                                                  -0.02
 
 
 1
@@ -38745,30 +38994,30 @@ sh cat $final_reports_dir/area.txt
 Report : area
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Mon Nov  1 22:56:09 2021
+Date   : Tue Nov  2 22:28:57 2021
 ****************************************
 
 Library(s) Used:
 
     saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
-Number of ports:                         9232
-Number of nets:                        452238
-Number of cells:                       381742
-Number of combinational cells:         376171
-Number of sequential cells:              5571
+Number of ports:                         9216
+Number of nets:                        449313
+Number of cells:                       381216
+Number of combinational cells:         366939
+Number of sequential cells:             14277
 Number of macros/black boxes:               0
-Number of buf/inv:                      30701
-Number of references:                      39
+Number of buf/inv:                      39229
+Number of references:                      75
 
-Combinational area:            1006676.324044
-Buf/Inv area:                    43072.071632
-Noncombinational area:           36794.207095
+Combinational area:             997408.202687
+Buf/Inv area:                    56116.012260
+Noncombinational area:           94410.178628
 Macro/Black Box area:                0.000000
-Net Interconnect area:         1171152.418522
+Net Interconnect area:         1059992.303720
 
-Total cell area:               1043470.531139
-Total area:                    2214622.949661
+Total cell area:               1091818.381315
+Total area:                    2151810.685035
 1
 report_power > $final_reports_dir/power.txt
 sh cat $final_reports_dir/power.txt
@@ -38778,7 +39027,7 @@ Report : power
         -analysis_effort low
 Design : BitFusion
 Version: N-2017.09-SP3
-Date   : Mon Nov  1 22:56:10 2021
+Date   : Tue Nov  2 22:28:58 2021
 ****************************************
 
 
@@ -38804,12 +39053,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  =  66.8031 mW   (76%)
-  Net Switching Power  =  20.7335 mW   (24%)
+  Cell Internal Power  =  84.6057 mW   (81%)
+  Net Switching Power  =  19.9862 mW   (19%)
                          ---------
-Total Dynamic Power    =  87.5366 mW  (100%)
+Total Dynamic Power    = 104.5919 mW  (100%)
 
-Cell Leakage Power     =  13.9085 mW
+Cell Leakage Power     =  16.1269 mW
 
 
                  Internal         Switching           Leakage            Total
@@ -38819,11 +39068,11 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       1.2693e+04          366.0467        8.0432e+08        1.3863e+04  (  13.67%)
+register       3.1704e+04          880.4152        2.0698e+09        3.4654e+04  (  28.71%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  5.4117e+04        2.0366e+04        1.3104e+10        8.7579e+04  (  86.33%)
+combinational  5.2897e+04        1.9108e+04        1.4057e+10        8.6064e+04  (  71.29%)
 --------------------------------------------------------------------------------------------------
-Total          6.6810e+04 uW     2.0732e+04 uW     1.3909e+10 pW     1.0144e+05 uW
+Total          8.4601e+04 uW     1.9989e+04 uW     1.6127e+10 pW     1.2072e+05 uW
 1
 #exit
 Warning: Cannot use command line editor for terminal type 'xterm-256color'.  (UI-74)

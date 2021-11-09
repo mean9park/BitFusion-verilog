@@ -68,14 +68,22 @@ ungroup -all -flatten
 compile_ultra
 # compile
 
+report_design > $design_dir/design
+
+report_synthetic > $reports_dir/synthetic
 
 report_timing > $final_reports_dir/timing.txt
 sh cat $final_reports_dir/timing.txt
+
+# set currect_design PE.v
 
 report_area > $final_reports_dir/area.txt
 sh cat $final_reports_dir/area.txt
 
 report_power > $final_reports_dir/power.txt
 sh cat $final_reports_dir/power.txt
+
+write_file -f verilog -hier -output ./output/syn.v
+write_file -f ddc -hier -output ./output/syn.ddc
 
 #exit

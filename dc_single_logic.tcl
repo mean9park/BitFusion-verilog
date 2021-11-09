@@ -61,14 +61,22 @@ link
 compile_ultra
 #compile
 
+report_design > $design_dir/column_design
+
+report_synthetic > $reports/dir/column_synthetic
 
 report_timing > $final_reports_dir/column_timing.txt
 sh cat $final_reports_dir/column_timing.txt
+
+# set current design PE.v
 
 report_area > $final_reports_dir/column_area.txt
 sh cat $final_reports_dir/column_area.txt
 
 report_power > $final_reports_dir/column_power.txt
 sh cat $final_reports_dir/column_power.txt
+
+write_file -f verilog -hier -output ./output/column_syn.v
+write_file -f ddc -hier -output ./output/column_syn.ddc
 
 #exit

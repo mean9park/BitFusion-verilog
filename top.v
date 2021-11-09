@@ -36,7 +36,7 @@ module BitFusion(
     input [1:0] weight_bitwidth,
     input [1:0] input_bitwidth,
     
-    input [63:0] signal,
+    input [47:0] signal,
 
     // only output works, because it's going to be used as REG!!
     output [27:0] total_output_1, total_output_2, total_output_3, total_output_4, total_output_5, total_output_6, total_output_7, total_output_8, 
