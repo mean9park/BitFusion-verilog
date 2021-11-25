@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version N-2017.09-SP3 for linux64 -- Jan 18, 2018
-#@ # Date:   Tue Nov  2 21:16:19 2021
+#@ # Date:   Sun Nov 21 18:13:45 2021
 #@ # Run by: espanol@friday
 #@ 
 
@@ -6631,7 +6631,7 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ 
 #@ set search_path [list .]
 #@ 
-#@ set edk_home /home/espanol/libraries/SAED32_EDK_01132015/
+#@ set edk_home /home/espanol/libraries/PDKS/SAED32_EDK_12162019/
 #@ set io_dir $edk_home/lib/io_std
 #@ set pll_dir $edk_home/lib/pll
 #@ set stdcell_dir $edk_home/lib/stdcell_hvt
@@ -6690,22 +6690,30 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ # set current_design top
 #@ # link
 #@ 
-#@ create_clock clk -period 3
+#@ create_clock clk -period 3.1
 #@ 
 #@ ungroup -all -flatten
 #@ 
 #@ compile_ultra
 #@ # compile
 #@ 
+#@ report_design > $design_dir/design
+#@ 
+#@ report_synthetic > $reports_dir/synthetic
 #@ 
 #@ report_timing > $final_reports_dir/timing.txt
 #@ sh cat $final_reports_dir/timing.txt
+#@ 
+#@ # set currect_design PE.v
 #@ 
 #@ report_area > $final_reports_dir/area.txt
 #@ sh cat $final_reports_dir/area.txt
 #@ 
 #@ report_power > $final_reports_dir/power.txt
 #@ sh cat $final_reports_dir/power.txt
+#@ 
+#@ write_file -f verilog -hier -output ./output/syn.v
+#@ write_file -f ddc -hier -output ./output/syn.ddc
 #@ 
 #@ #exit
 #@ # -- End source /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl

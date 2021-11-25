@@ -2,15 +2,15 @@
 ****************************************
 Report : power
         -analysis_effort low
-Design : BitFusion_column
+Design : PE
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 01:35:47 2021
+Date   : Sat Nov 20 21:50:29 2021
 ****************************************
 
 
 Library(s) Used:
 
-    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
+    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
 
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
@@ -18,7 +18,7 @@ Wire Load Model Mode: enclosed
 
 Design        Wire Load Model            Library
 ------------------------------------------------
-BitFusion_column       70000             saed32hvt_ss0p95v125c
+PE                     8000              saed32hvt_ss0p95v125c
 
 
 Global Operating Voltage = 0.95 
@@ -30,12 +30,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  =   4.4149 mW   (81%)
-  Net Switching Power  =   1.0323 mW   (19%)
+  Cell Internal Power  = 202.2330 uW   (73%)
+  Net Switching Power  =  74.7128 uW   (27%)
                          ---------
-Total Dynamic Power    =   5.4472 mW  (100%)
+Total Dynamic Power    = 276.9458 uW  (100%)
 
-Cell Leakage Power     = 939.5120 uW
+Cell Leakage Power     =  43.7233 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -45,9 +45,9 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       2.0151e+03           62.8677        1.2900e+08        2.2070e+03  (  34.56%)
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  2.3998e+03          969.4446        8.1051e+08        4.1798e+03  (  65.44%)
+combinational    202.2329           74.7127        4.3723e+07          320.6691  ( 100.00%)
 --------------------------------------------------------------------------------------------------
-Total          4.4149e+03 uW     1.0323e+03 uW     9.3951e+08 pW     6.3868e+03 uW
+Total            202.2329 uW        74.7127 uW     4.3723e+07 pW       320.6691 uW
 1

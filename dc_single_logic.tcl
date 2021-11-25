@@ -2,7 +2,7 @@ set_host_options -max_cores 16
 
 set search_path [list .]
  
-set edk_home /home/espanol/libraries/SAED32_EDK_01132015/
+set edk_home /home/espanol/libraries/PDKS/SAED32_EDK_12162019/
 set io_dir $edk_home/lib/io_std
 set pll_dir $edk_home/lib/pll
 set stdcell_dir $edk_home/lib/stdcell_hvt
@@ -21,20 +21,23 @@ sh rm -rf ./WORK
 define_design_lib WORK -path WORK
 
 set SOURCE_FILES {
-    ./accumulator.v
-    ./Buffer_32bit.v
-    ./BitFusion_column.v
-    ./PE_register.v
-    ./bitbrick.v
-    ./bitbrick_shift.v
-    ./PE_adder.v
     ./PE.v
+    ./PE_adder.v
+    ./FA.v
+    ./HA.v
+    ./bitbrick_shift.v
+    ./bitbrick.v
     ./signed3bit_MUL.v
-    ./Weight_MUX_REG.v
 }
+    # ./Input_MUX_REG.v
+    # ./PE_register.v
+    # ./accumulator.v
+    # ./Buffer_32bit.v
+    # ./BitFusion_column.v
+    # ./Weight_MUX_REG.v
 
 analyze -format verilog $SOURCE_FILES -library WORK
-elaborate BitFusion_column
+elaborate PE
 
 
 set reports_dir reports

@@ -22,7 +22,7 @@ module bitbrick(
     assign in_y[1:0] = y[1:0];
     assign in_x[2] = sign_x & x[1];
     assign in_y[2] = sign_y & y[1];
-    
+
     signed_3bit_MUL MUL_3bit(.in_x(in_x), .in_y(in_y), .p(p));
         
 endmodule

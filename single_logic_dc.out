@@ -24,72 +24,69 @@ set_host_options -max_cores 16
 1
 set search_path [list .]
 .
-set edk_home /home/espanol/libraries/SAED32_EDK_01132015/
-/home/espanol/libraries/SAED32_EDK_01132015/
+set edk_home /home/espanol/libraries/PDKS/SAED32_EDK_12162019/
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019/
 set io_dir $edk_home/lib/io_std
-/home/espanol/libraries/SAED32_EDK_01132015//lib/io_std
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/io_std
 set pll_dir $edk_home/lib/pll
-/home/espanol/libraries/SAED32_EDK_01132015//lib/pll
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/pll
 set stdcell_dir $edk_home/lib/stdcell_hvt
-/home/espanol/libraries/SAED32_EDK_01132015//lib/stdcell_hvt
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/stdcell_hvt
 set io_db_dir $io_dir/db_nldm
-/home/espanol/libraries/SAED32_EDK_01132015//lib/io_std/db_nldm
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/io_std/db_nldm
 set pll_db_dir $pll_dir/db_nldm
-/home/espanol/libraries/SAED32_EDK_01132015//lib/pll/db_nldm
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/pll/db_nldm
 set stdcell_db_dir $stdcell_dir/db_nldm
-/home/espanol/libraries/SAED32_EDK_01132015//lib/stdcell_hvt/db_nldm
+/home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/stdcell_hvt/db_nldm
 set synthetic_library dw_foundation.sldb
 dw_foundation.sldb
 set link_library "*  $stdcell_db_dir/saed32hvt_ss0p95v125c.db   $pll_db_dir/saed32pll_ss0p95v125c_2p25v.db  $io_db_dir/saed32io_fc_ss0p95v125c_2p25v.db     $synthetic_library"
-*  /home/espanol/libraries/SAED32_EDK_01132015//lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db   /home/espanol/libraries/SAED32_EDK_01132015//lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db  /home/espanol/libraries/SAED32_EDK_01132015//lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db     dw_foundation.sldb
+*  /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db   /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db  /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db     dw_foundation.sldb
 set target_library "  $stdcell_db_dir/saed32hvt_ss0p95v125c.db  $pll_db_dir/saed32pll_ss0p95v125c_2p25v.db   $io_db_dir/saed32io_fc_ss0p95v125c_2p25v.db  "
-  /home/espanol/libraries/SAED32_EDK_01132015//lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db  /home/espanol/libraries/SAED32_EDK_01132015//lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db   /home/espanol/libraries/SAED32_EDK_01132015//lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db  
+  /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db  /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db   /home/espanol/libraries/PDKS/SAED32_EDK_12162019//lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db  
 sh rm -rf ./WORK
 define_design_lib WORK -path WORK
 1
 set SOURCE_FILES {
-    ./accumulator.v
-    ./Buffer_32bit.v
-    ./BitFusion_column.v
-    ./PE_register.v
-    ./bitbrick.v
-    ./bitbrick_shift.v
-    ./PE_adder.v
     ./PE.v
+    ./PE_adder.v
+    ./FA.v
+    ./HA.v
+    ./bitbrick_shift.v
+    ./bitbrick.v
     ./signed3bit_MUL.v
-    ./Weight_MUX_REG.v
 }
 
-    ./accumulator.v
-    ./Buffer_32bit.v
-    ./BitFusion_column.v
-    ./PE_register.v
-    ./bitbrick.v
-    ./bitbrick_shift.v
-    ./PE_adder.v
     ./PE.v
+    ./PE_adder.v
+    ./FA.v
+    ./HA.v
+    ./bitbrick_shift.v
+    ./bitbrick.v
     ./signed3bit_MUL.v
-    ./Weight_MUX_REG.v
 
+# ./Input_MUX_REG.v
+# ./PE_register.v
+# ./accumulator.v
+# ./Buffer_32bit.v
+# ./BitFusion_column.v
+# ./Weight_MUX_REG.v
 analyze -format verilog $SOURCE_FILES -library WORK
 Running PRESTO HDLC
-Compiling source file ./accumulator.v
-Compiling source file ./Buffer_32bit.v
-Compiling source file ./BitFusion_column.v
-Compiling source file ./PE_register.v
-Compiling source file ./bitbrick.v
-Compiling source file ./bitbrick_shift.v
-Compiling source file ./PE_adder.v
 Compiling source file ./PE.v
+Compiling source file ./PE_adder.v
+Compiling source file ./FA.v
+Compiling source file ./HA.v
+Compiling source file ./bitbrick_shift.v
+Compiling source file ./bitbrick.v
 Compiling source file ./signed3bit_MUL.v
-Compiling source file ./Weight_MUX_REG.v
 Presto compilation completed successfully.
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
 Loading db file '/usr/synopsys/SYN/libraries/syn/dw_foundation.sldb'
 1
-elaborate BitFusion_column
+elaborate PE
 Loading db file '/usr/synopsys/SYN/libraries/syn/gtech.db'
 Loading db file '/usr/synopsys/SYN/libraries/syn/standard.sldb'
   Loading link library 'saed32hvt_ss0p95v125c'
@@ -99,45 +96,7 @@ Loading db file '/usr/synopsys/SYN/libraries/syn/standard.sldb'
 Running PRESTO HDLC
 Presto compilation completed successfully.
 Elaborated 1 design.
-Current design is now 'BitFusion_column'.
-Information: Building the design 'BUF_32bit'. (HDL-193)
-Presto compilation completed successfully.
-Information: Building the design 'Weight_MUX_REG'. (HDL-193)
-
-Inferred memory devices in process
-	in routine Weight_MUX_REG line 30 in file
-		'./Weight_MUX_REG.v'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   sorted_data_reg   | Flip-flop |  32   |  Y  | N  | N  | N  | N  | N  | N  |
-|      state_reg      | Flip-flop |   2   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
-Information: Building the design 'PE'. (HDL-193)
-Presto compilation completed successfully.
-Information: Building the design 'PE_register'. (HDL-193)
-
-Inferred memory devices in process
-	in routine PE_register line 27 in file
-		'./PE_register.v'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|   PE_sum_out_reg    | Flip-flop |  20   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
-Information: Building the design 'ACC'. (HDL-193)
-
-Inferred memory devices in process
-	in routine ACC line 29 in file
-		'./accumulator.v'.
-===============================================================================
-|    Register Name    |   Type    | Width | Bus | MB | AR | AS | SR | SS | ST |
-===============================================================================
-|  total_output_reg   | Flip-flop |  28   |  Y  | N  | N  | N  | N  | N  | N  |
-===============================================================================
-Presto compilation completed successfully.
+Current design is now 'PE'.
 Information: Building the design 'bitbrick'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'bitbrick_shift'. (HDL-193)
@@ -145,6 +104,10 @@ Presto compilation completed successfully.
 Information: Building the design 'PE_adder'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'signed_3bit_MUL'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'HA'. (HDL-193)
+Presto compilation completed successfully.
+Information: Building the design 'FA'. (HDL-193)
 Presto compilation completed successfully.
 1
 set reports_dir reports
@@ -165,879 +128,175 @@ if { ! [ file exists $design_dir] } {
 # set current_design top
 link
 
-  Linking design 'BitFusion_column'
+  Linking design 'PE'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (10 designs)              /home/espanol/RSSA_DC/bitfusion/BitFusion_column.db, etc
-  saed32hvt_ss0p95v125c (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
-  saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
-  saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
+  * (7 designs)               /home/espanol/RSSA_DC/bitfusion/PE.db, etc
+  saed32hvt_ss0p95v125c (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
+  saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
+  saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
   dw_foundation.sldb (library) /usr/synopsys/SYN/libraries/syn/dw_foundation.sldb
 
 1
 create_clock clk -period 3
 1
 ungroup -all -flatten
-Information: Changed wire load model for 'ACC' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_register' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'PE' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'Weight_MUX_REG' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'BUF_32bit' from '(none)' to 'ForQA'. (OPT-170)
 Information: Updating graph... (UID-83)
 1
 link
 
-  Linking design 'BitFusion_column'
+  Linking design 'PE'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  BitFusion_column            /home/espanol/RSSA_DC/bitfusion/BitFusion_column.db
-  saed32hvt_ss0p95v125c (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
-  saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
-  saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/SAED32_EDK_01132015/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
+  PE                          /home/espanol/RSSA_DC/bitfusion/PE.db
+  saed32hvt_ss0p95v125c (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
+  saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
+  saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
   dw_foundation.sldb (library) /usr/synopsys/SYN/libraries/syn/dw_foundation.sldb
 
 1
@@ -1056,9 +315,9 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 
 Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
 
-Information: There are 65 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 4 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
-  Simplifying Design 'BitFusion_column'
+  Simplifying Design 'PE'
 
   Loading target library 'saed32pll_ss0p95v125c_2p25v'
   Loading target library 'saed32io_fc_ss0p95v125c_2p25v'
@@ -1071,9 +330,9 @@ Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'BitFusion_column'
-Information: Added key list 'DesignWare' to design 'BitFusion_column'. (DDB-72)
- Implement Synthetic for 'BitFusion_column'.
+  Processing 'PE'
+ Implement Synthetic for 'PE'.
+Information: Added key list 'DesignWare' to design 'PE'. (DDB-72)
 
   Updating timing information
 Information: Updating design information... (UID-85)
@@ -1090,11 +349,6 @@ Threshold voltage group cell usage:
 
   Beginning Mapping Optimizations  (Ultra High effort)
   -------------------------------
-  Mapping Optimization (Phase 1)
-  Mapping Optimization (Phase 2)
-  Mapping Optimization (Phase 3)
-  Mapping Optimization (Phase 4)
-  Mapping Optimization (Phase 5)
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -1138,8 +392,6 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 27)
   Global Optimization (Phase 28)
   Global Optimization (Phase 29)
-  Global Optimization (Phase 30)
-  Mapping 'BitFusion_column_DP_OP_2243J1_133_2174_0'
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -1157,59 +409,38 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:01:41   62655.6      0.90     128.5      13.6                           943770048.0000
-    0:01:46   64375.2      0.61      97.3      14.6                           978318912.0000
-    0:01:46   64375.2      0.61      97.3      14.6                           978318912.0000
-    0:01:47   64389.7      0.61      97.2      24.7                           979803520.0000
+    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
+    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
+    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
+    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:01:56   63709.6      0.65      96.7      14.6                           959034944.0000
-    0:01:59   63210.7      0.65      96.5      14.6                           946405376.0000
-    0:02:01   63199.5      0.65      96.1      14.6                           944930688.0000
-    0:02:03   63155.8      0.65      95.5      14.1                           924197056.0000
-    0:02:03   63155.8      0.65      95.5      14.1                           924197056.0000
-    0:02:18   66318.1      0.38      58.9      63.2                           987145024.0000
-    0:02:18   66318.1      0.38      58.9      63.2                           987145024.0000
-    0:02:18   66318.1      0.38      58.9      63.2                           987301440.0000
-    0:02:18   66318.1      0.38      58.9      63.2                           987301440.0000
-    0:02:24   67274.0      0.35      53.0      69.7                           1005897984.0000
-    0:02:24   67274.0      0.35      53.0      69.7                           1005897984.0000
-    0:02:28   67831.3      0.31      47.2      61.5                           1017743232.0000
-    0:02:28   67831.3      0.31      47.2      61.5                           1017743232.0000
-    0:02:30   68145.7      0.30      45.9      79.6                           1024730176.0000
-    0:02:30   68145.7      0.30      45.9      79.6                           1024730176.0000
-    0:02:32   68407.7      0.29      43.4      79.4                           1031515072.0000
-    0:02:32   68407.7      0.29      43.4      79.4                           1031515072.0000
-    0:02:34   68662.6      0.28      42.5      79.8                           1036305792.0000
-    0:02:34   68662.6      0.28      42.5      79.8                           1036305792.0000
-    0:02:35   68818.4      0.27      41.1      79.7                           1040602048.0000
-    0:02:35   68818.4      0.27      41.1      79.7                           1040602048.0000
-    0:02:36   68856.3      0.27      41.1      79.7                           1041332480.0000
-
-
-  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
-  ----------------------------
-
-                                  TOTAL                                                
-   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
-    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
-  --------- --------- --------- --------- --------- ------------------------- ---------
-    0:02:36   68856.3      0.27      41.1      79.7                           1041332480.0000
-  Global Optimization (Phase 31)
-  Global Optimization (Phase 32)
-  Global Optimization (Phase 33)
-    0:02:38   68890.6      0.27      40.7       0.0 PE_reg_5/PE_sum_out_reg[16]/D 1043306176.0000
-    0:02:39   68923.6      0.27      40.6       0.0 PE_reg_10/PE_sum_out_reg[17]/D 1045732416.0000
-    0:02:41   69051.4      0.27      40.2       0.0 PE_reg_1/PE_sum_out_reg[19]/D 1059856192.0000
-    0:02:43   69159.7      0.27      39.9       0.0 PE_reg_9/PE_sum_out_reg[17]/D 1070958912.0000
-    0:02:44   69181.8      0.26      39.7       0.0 PE_reg_2/PE_sum_out_reg[16]/D 1072381504.0000
-    0:02:45   69210.5      0.26      39.5       0.0 PE_reg_12/PE_sum_out_reg[18]/D 1073137600.0000
-    0:02:46   69219.9      0.26      39.5       0.0                           1074336128.0000
-    0:02:48   69480.9      0.26      38.7       0.1                           1079580288.0000
+    0:00:06    3485.8      0.00       0.0       0.0                           48667616.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -1222,7 +453,11 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:02:48   69480.9      0.26      38.7       0.1                           1079580288.0000
+    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+  Global Optimization (Phase 30)
+  Global Optimization (Phase 31)
+  Global Optimization (Phase 32)
+  Global Optimization (Phase 33)
   Global Optimization (Phase 34)
   Global Optimization (Phase 35)
   Global Optimization (Phase 36)
@@ -1230,64 +465,45 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 38)
   Global Optimization (Phase 39)
   Global Optimization (Phase 40)
-  Global Optimization (Phase 41)
-  Global Optimization (Phase 42)
-  Global Optimization (Phase 43)
-  Global Optimization (Phase 44)
-  Global Optimization (Phase 45)
-  Global Optimization (Phase 46)
-  Global Optimization (Phase 47)
-  Global Optimization (Phase 48)
-  Global Optimization (Phase 49)
-    0:02:54   66784.5      0.29      42.1       0.0 PE_reg_13/PE_sum_out_reg[15]/D 940187776.0000
-    0:02:56   66872.7      0.28      41.3       0.0 PE_reg_8/PE_sum_out_reg[18]/D 943698432.0000
-    0:02:56   66872.7      0.28      41.3       0.0                           943698432.0000
-    0:03:02   67834.1      0.26      37.6      12.0                           965564160.0000
-    0:03:02   67834.1      0.26      37.6      12.0                           965564160.0000
-    0:03:03   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:03   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:04   67731.2      0.26      37.5       7.6                           949188608.0000
-    0:03:06   68061.8      0.24      34.8      15.5                           958284544.0000
-    0:03:06   68061.8      0.24      34.8      15.5                           958284544.0000
-    0:03:08   68485.2      0.23      33.9      21.7                           967264960.0000
-    0:03:09   68485.2      0.23      33.9      21.7                           967264960.0000
-    0:03:11   68637.7      0.22      32.4      20.8                           972885056.0000
-    0:03:11   68637.7      0.22      32.4      20.8                           972885056.0000
-    0:03:14   68971.9      0.22      31.7      25.9                           979805120.0000
-    0:03:14   68971.9      0.22      31.7      25.9                           979805120.0000
-    0:03:15   69033.6      0.22      31.1      25.3                           981372928.0000
-    0:03:15   69033.6      0.22      31.1      25.3                           981372928.0000
-    0:03:16   69290.6      0.21      30.9      27.4                           987092352.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:03:17   69268.5      0.21      30.9      27.4                           986647424.0000
-    0:03:19   68335.8      0.25      32.8      19.2                           938454656.0000
-    0:03:20   68359.7      0.22      31.4      19.2                           939538816.0000
-    0:03:20   68359.7      0.22      31.4      19.2                           939538816.0000
-    0:03:21   68345.7      0.22      31.4      12.0                           937308288.0000
-    0:03:24   67997.8      0.22      31.5       5.5                           931372736.0000
-    0:03:27   68052.9      0.22      31.2       1.6 PE_reg_4/PE_sum_out_reg[12]/D 934328832.0000
-    0:03:28   68123.8      0.21      30.8      22.7 PE_reg_16/PE_sum_out_reg[11]/D 938212160.0000
-    0:03:29   68235.1      0.21      30.5      22.7 PE_reg_10/PE_sum_out_reg[17]/D 945593280.0000
-    0:03:30   68368.8      0.21      30.3      33.7 PE_reg_15/PE_sum_out_reg[16]/D 959242880.0000
-    0:03:32   68425.7      0.21      30.1      54.9 PE_reg_10/PE_sum_out_reg[17]/D 962145536.0000
-    0:03:33   68418.6      0.21      29.7       0.0 PE_reg_7/PE_sum_out_reg[16]/D 956948544.0000
-    0:03:34   68471.5      0.21      29.5       0.0                           957839872.0000
-    0:03:35   68570.3      0.20      28.4       0.0                           962318656.0000
-    0:03:38   68576.4      0.20      28.2       0.0                           962951552.0000
-    0:03:38   68576.4      0.20      28.2       0.0                           962951552.0000
-    0:03:40   68378.2      0.20      28.2       0.0                           935162240.0000
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
-Loading db file '/home/espanol/libraries/SAED32_EDK_01132015/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
+    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
+    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
+    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
+Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
 
 
 Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
@@ -1301,114 +517,110 @@ Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 1
 #compile
+report_design > $design_dir/column_design
+report_synthetic > $reports/dir/column_synthetic
+Error: can't read "reports": no such variable
+	Use error_info for more info. (CMD-013)
 report_timing > $final_reports_dir/column_timing.txt
 sh cat $final_reports_dir/column_timing.txt
-Information: Updating design information... (UID-85)
  
 ****************************************
 Report : timing
         -path full
         -delay max
         -max_paths 1
-Design : BitFusion_column
+Design : PE
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 01:35:47 2021
+Date   : Sat Nov 20 21:50:29 2021
 ****************************************
 
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
 Wire Load Model Mode: enclosed
 
-  Startpoint: Weight_MUX_REG_10/sorted_data_reg[12]
-              (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: PE_reg_10/PE_sum_out_reg[17]
-            (rising edge-triggered flip-flop clocked by clk)
-  Path Group: clk
+  Startpoint: y[0] (input port)
+  Endpoint: PE_sum[19] (output port)
+  Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  BitFusion_column   70000                 saed32hvt_ss0p95v125c
+  PE                 8000                  saed32hvt_ss0p95v125c
 
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  clock clk (rise edge)                                   0.00       0.00
-  clock network delay (ideal)                             0.00       0.00
-  Weight_MUX_REG_10/sorted_data_reg[12]/CLK (DFFX1_HVT)
-                                                          0.00       0.00 r
-  Weight_MUX_REG_10/sorted_data_reg[12]/Q (DFFX1_HVT)     0.20       0.20 r
-  U11271/Y (AO21X1_HVT)                                   0.07       0.26 r
-  U11270/Y (NAND4X0_HVT)                                  0.10       0.37 f
-  U11269/Y (XOR2X2_HVT)                                   0.18       0.55 r
-  U11275/Y (AO22X1_HVT)                                   0.10       0.65 r
-  U15870/Y (OR2X2_HVT)                                    0.09       0.74 r
-  U28112/S (FADDX1_HVT)                                   0.22       0.96 f
-  U28132/S (FADDX1_HVT)                                   0.19       1.15 r
-  U6767/Y (OR2X2_HVT)                                     0.09       1.24 r
-  U10445/Y (NAND3X0_HVT)                                  0.07       1.30 f
-  U6704/Y (AND3X1_HVT)                                    0.13       1.43 f
-  U7132/Y (XNOR2X2_HVT)                                   0.14       1.57 r
-  U9700/Y (NAND2X0_HVT)                                   0.05       1.62 f
-  U9699/Y (NAND2X0_HVT)                                   0.06       1.69 r
-  U11277/Y (AO21X1_HVT)                                   0.13       1.82 r
-  U28566/CO (FADDX1_HVT)                                  0.15       1.96 r
-  U28576/S (FADDX1_HVT)                                   0.22       2.18 f
-  U28592/S (FADDX1_HVT)                                   0.20       2.38 r
-  U7203/Y (OR2X2_HVT)                                     0.09       2.48 r
-  U7153/Y (INVX2_HVT)                                     0.03       2.50 f
-  U17095/Y (OA21X1_HVT)                                   0.09       2.59 f
-  U18901/Y (OA21X1_HVT)                                   0.08       2.67 f
-  U18900/Y (OA21X1_HVT)                                   0.09       2.76 f
-  U18899/Y (INVX2_HVT)                                    0.04       2.80 r
-  U28701/Y (AO21X1_HVT)                                   0.12       2.92 r
-  U28703/Y (XNOR2X2_HVT)                                  0.13       3.04 r
-  U28704/Y (AND2X1_HVT)                                   0.07       3.12 r
-  PE_reg_10/PE_sum_out_reg[17]/D (DFFX1_HVT)              0.00       3.12 r
-  data arrival time                                                  3.12
-
-  clock clk (rise edge)                                   3.00       3.00
-  clock network delay (ideal)                             0.00       3.00
-  PE_reg_10/PE_sum_out_reg[17]/CLK (DFFX1_HVT)            0.00       3.00 r
-  library setup time                                     -0.08       2.92
-  data required time                                                 2.92
-  --------------------------------------------------------------------------
-  data required time                                                 2.92
-  data arrival time                                                 -3.12
-  --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -0.20
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  y[0] (in)                                0.00       0.00 r
+  U1149/Y (NAND2X0_HVT)                    0.08       0.08 f
+  U1154/Y (NAND3X0_HVT)                    0.08       0.15 r
+  U1155/SO (HADDX1_HVT)                    0.18       0.33 f
+  U983/Y (INVX0_HVT)                       0.04       0.36 r
+  U1157/Y (NAND2X0_HVT)                    0.06       0.42 f
+  U1158/Y (NOR2X0_HVT)                     0.12       0.55 r
+  U1161/Y (NAND2X0_HVT)                    0.11       0.66 f
+  U1446/Y (NAND2X0_HVT)                    0.09       0.75 r
+  U1447/Y (AND2X1_HVT)                     0.10       0.85 r
+  U1448/Y (AO22X1_HVT)                     0.10       0.95 r
+  U2027/Y (NOR2X0_HVT)                     0.12       1.07 f
+  U2050/S (FADDX1_HVT)                     0.21       1.28 r
+  U2054/S (FADDX1_HVT)                     0.24       1.51 f
+  U2055/S (FADDX1_HVT)                     0.21       1.72 r
+  intadd_7/U3/S (FADDX1_HVT)               0.24       1.96 f
+  intadd_14/U2/S (FADDX1_HVT)              0.22       2.18 r
+  intadd_0/U16/CO (FADDX1_HVT)             0.15       2.33 r
+  intadd_0/U15/CO (FADDX1_HVT)             0.14       2.47 r
+  intadd_0/U14/CO (FADDX1_HVT)             0.14       2.62 r
+  intadd_0/U13/CO (FADDX1_HVT)             0.14       2.76 r
+  intadd_0/U12/CO (FADDX1_HVT)             0.14       2.90 r
+  intadd_0/U11/CO (FADDX1_HVT)             0.14       3.04 r
+  intadd_0/U10/CO (FADDX1_HVT)             0.14       3.18 r
+  intadd_0/U9/CO (FADDX1_HVT)              0.14       3.33 r
+  intadd_0/U8/CO (FADDX1_HVT)              0.14       3.47 r
+  intadd_0/U7/CO (FADDX1_HVT)              0.14       3.61 r
+  intadd_0/U6/CO (FADDX1_HVT)              0.14       3.75 r
+  intadd_0/U5/CO (FADDX1_HVT)              0.14       3.89 r
+  intadd_0/U4/CO (FADDX1_HVT)              0.14       4.04 r
+  intadd_0/U3/CO (FADDX1_HVT)              0.14       4.18 r
+  intadd_0/U2/CO (FADDX1_HVT)              0.14       4.31 r
+  U2087/Y (XNOR3X1_HVT)                    0.28       4.59 r
+  PE_sum[19] (out)                         0.00       4.59 r
+  data arrival time                                   4.59
+  -----------------------------------------------------------
+  (Path is unconstrained)
 
 
 1
+# set current design PE.v
 report_area > $final_reports_dir/column_area.txt
 sh cat $final_reports_dir/column_area.txt
  
 ****************************************
 Report : area
-Design : BitFusion_column
+Design : PE
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 01:35:47 2021
+Date   : Sat Nov 20 21:50:29 2021
 ****************************************
 
 Library(s) Used:
 
-    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
+    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
-Number of ports:                         1104
-Number of nets:                         30903
-Number of cells:                        28048
-Number of combinational cells:          27145
-Number of sequential cells:               903
+Number of ports:                          162
+Number of nets:                          1704
+Number of cells:                         1310
+Number of combinational cells:           1310
+Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                       3408
-Number of references:                      60
+Number of buf/inv:                        185
+Number of references:                      21
 
-Combinational area:              62477.490583
-Buf/Inv area:                     4498.094681
-Noncombinational area:            5900.715585
+Combinational area:               3481.518624
+Buf/Inv area:                      235.083201
+Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:           22851.323487
+Net Interconnect area:             626.967772
 
-Total cell area:                 68378.206168
-Total area:                      91229.529655
+Total cell area:                  3481.518624
+Total area:                       4108.486396
 1
 report_power > $final_reports_dir/column_power.txt
 sh cat $final_reports_dir/column_power.txt
@@ -1416,15 +628,15 @@ sh cat $final_reports_dir/column_power.txt
 ****************************************
 Report : power
         -analysis_effort low
-Design : BitFusion_column
+Design : PE
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 01:35:47 2021
+Date   : Sat Nov 20 21:50:29 2021
 ****************************************
 
 
 Library(s) Used:
 
-    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/SAED32_EDK_01132015/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
+    saed32hvt_ss0p95v125c (File: /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
 
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
@@ -1432,7 +644,7 @@ Wire Load Model Mode: enclosed
 
 Design        Wire Load Model            Library
 ------------------------------------------------
-BitFusion_column       70000             saed32hvt_ss0p95v125c
+PE                     8000              saed32hvt_ss0p95v125c
 
 
 Global Operating Voltage = 0.95 
@@ -1444,12 +656,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  =   4.4149 mW   (81%)
-  Net Switching Power  =   1.0323 mW   (19%)
+  Cell Internal Power  = 202.2330 uW   (73%)
+  Net Switching Power  =  74.7128 uW   (27%)
                          ---------
-Total Dynamic Power    =   5.4472 mW  (100%)
+Total Dynamic Power    = 276.9458 uW  (100%)
 
-Cell Leakage Power     = 939.5120 uW
+Cell Leakage Power     =  43.7233 uW
 
 
                  Internal         Switching           Leakage            Total
@@ -1459,22 +671,18 @@ io_pad             0.0000            0.0000            0.0000            0.0000 
 memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
 black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
-register       2.0151e+03           62.8677        1.2900e+08        2.2070e+03  (  34.56%)
+register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational  2.3998e+03          969.4446        8.1051e+08        4.1798e+03  (  65.44%)
+combinational    202.2329           74.7127        4.3723e+07          320.6691  ( 100.00%)
 --------------------------------------------------------------------------------------------------
-Total          4.4149e+03 uW     1.0323e+03 uW     9.3951e+08 pW     6.3868e+03 uW
+Total            202.2329 uW        74.7127 uW     4.3723e+07 pW       320.6691 uW
+1
+write_file -f verilog -hier -output ./output/column_syn.v
+Writing verilog file '/home/espanol/RSSA_DC/bitfusion/output/column_syn.v'.
+1
+write_file -f ddc -hier -output ./output/column_syn.ddc
+Writing ddc file './output/column_syn.ddc'.
 1
 #exit
 Warning: Cannot use command line editor for terminal type 'xterm-256color'.  (UI-74)
-dc_shell> .		    Weight_MUX_REG.v	 designs
-..		    accumulator.v	 filenames.log
-.git		    alib-52		 final_reports
-BitFusion_column.v  bitbrick.v		 reports
-Buffer_32bit.v	    bitbrick_shift.v	 run_dc.sh
-Input_MUX_REG.v     bitfusion_dc.out	 signed3bit_MUL.v
-PE.v		    command.log		 single_logic_check.sh
-PE_adder.v	    dc_bitfusion.tcl	 single_logic_dc.out
-PE_register.v	    dc_single_logic.tcl  top.v
-WORK		    default.svf		 top_tb.v
 dc_shell> 

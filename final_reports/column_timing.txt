@@ -1,75 +1,66 @@
-Information: Updating design information... (UID-85)
  
 ****************************************
 Report : timing
         -path full
         -delay max
         -max_paths 1
-Design : BitFusion_column
+Design : PE
 Version: N-2017.09-SP3
-Date   : Fri Oct 22 01:35:47 2021
+Date   : Sat Nov 20 21:50:29 2021
 ****************************************
 
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
 Wire Load Model Mode: enclosed
 
-  Startpoint: Weight_MUX_REG_10/sorted_data_reg[12]
-              (rising edge-triggered flip-flop clocked by clk)
-  Endpoint: PE_reg_10/PE_sum_out_reg[17]
-            (rising edge-triggered flip-flop clocked by clk)
-  Path Group: clk
+  Startpoint: y[0] (input port)
+  Endpoint: PE_sum[19] (output port)
+  Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  BitFusion_column   70000                 saed32hvt_ss0p95v125c
+  PE                 8000                  saed32hvt_ss0p95v125c
 
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  clock clk (rise edge)                                   0.00       0.00
-  clock network delay (ideal)                             0.00       0.00
-  Weight_MUX_REG_10/sorted_data_reg[12]/CLK (DFFX1_HVT)
-                                                          0.00       0.00 r
-  Weight_MUX_REG_10/sorted_data_reg[12]/Q (DFFX1_HVT)     0.20       0.20 r
-  U11271/Y (AO21X1_HVT)                                   0.07       0.26 r
-  U11270/Y (NAND4X0_HVT)                                  0.10       0.37 f
-  U11269/Y (XOR2X2_HVT)                                   0.18       0.55 r
-  U11275/Y (AO22X1_HVT)                                   0.10       0.65 r
-  U15870/Y (OR2X2_HVT)                                    0.09       0.74 r
-  U28112/S (FADDX1_HVT)                                   0.22       0.96 f
-  U28132/S (FADDX1_HVT)                                   0.19       1.15 r
-  U6767/Y (OR2X2_HVT)                                     0.09       1.24 r
-  U10445/Y (NAND3X0_HVT)                                  0.07       1.30 f
-  U6704/Y (AND3X1_HVT)                                    0.13       1.43 f
-  U7132/Y (XNOR2X2_HVT)                                   0.14       1.57 r
-  U9700/Y (NAND2X0_HVT)                                   0.05       1.62 f
-  U9699/Y (NAND2X0_HVT)                                   0.06       1.69 r
-  U11277/Y (AO21X1_HVT)                                   0.13       1.82 r
-  U28566/CO (FADDX1_HVT)                                  0.15       1.96 r
-  U28576/S (FADDX1_HVT)                                   0.22       2.18 f
-  U28592/S (FADDX1_HVT)                                   0.20       2.38 r
-  U7203/Y (OR2X2_HVT)                                     0.09       2.48 r
-  U7153/Y (INVX2_HVT)                                     0.03       2.50 f
-  U17095/Y (OA21X1_HVT)                                   0.09       2.59 f
-  U18901/Y (OA21X1_HVT)                                   0.08       2.67 f
-  U18900/Y (OA21X1_HVT)                                   0.09       2.76 f
-  U18899/Y (INVX2_HVT)                                    0.04       2.80 r
-  U28701/Y (AO21X1_HVT)                                   0.12       2.92 r
-  U28703/Y (XNOR2X2_HVT)                                  0.13       3.04 r
-  U28704/Y (AND2X1_HVT)                                   0.07       3.12 r
-  PE_reg_10/PE_sum_out_reg[17]/D (DFFX1_HVT)              0.00       3.12 r
-  data arrival time                                                  3.12
-
-  clock clk (rise edge)                                   3.00       3.00
-  clock network delay (ideal)                             0.00       3.00
-  PE_reg_10/PE_sum_out_reg[17]/CLK (DFFX1_HVT)            0.00       3.00 r
-  library setup time                                     -0.08       2.92
-  data required time                                                 2.92
-  --------------------------------------------------------------------------
-  data required time                                                 2.92
-  data arrival time                                                 -3.12
-  --------------------------------------------------------------------------
-  slack (VIOLATED)                                                  -0.20
+  Point                                    Incr       Path
+  -----------------------------------------------------------
+  input external delay                     0.00       0.00 r
+  y[0] (in)                                0.00       0.00 r
+  U1149/Y (NAND2X0_HVT)                    0.08       0.08 f
+  U1154/Y (NAND3X0_HVT)                    0.08       0.15 r
+  U1155/SO (HADDX1_HVT)                    0.18       0.33 f
+  U983/Y (INVX0_HVT)                       0.04       0.36 r
+  U1157/Y (NAND2X0_HVT)                    0.06       0.42 f
+  U1158/Y (NOR2X0_HVT)                     0.12       0.55 r
+  U1161/Y (NAND2X0_HVT)                    0.11       0.66 f
+  U1446/Y (NAND2X0_HVT)                    0.09       0.75 r
+  U1447/Y (AND2X1_HVT)                     0.10       0.85 r
+  U1448/Y (AO22X1_HVT)                     0.10       0.95 r
+  U2027/Y (NOR2X0_HVT)                     0.12       1.07 f
+  U2050/S (FADDX1_HVT)                     0.21       1.28 r
+  U2054/S (FADDX1_HVT)                     0.24       1.51 f
+  U2055/S (FADDX1_HVT)                     0.21       1.72 r
+  intadd_7/U3/S (FADDX1_HVT)               0.24       1.96 f
+  intadd_14/U2/S (FADDX1_HVT)              0.22       2.18 r
+  intadd_0/U16/CO (FADDX1_HVT)             0.15       2.33 r
+  intadd_0/U15/CO (FADDX1_HVT)             0.14       2.47 r
+  intadd_0/U14/CO (FADDX1_HVT)             0.14       2.62 r
+  intadd_0/U13/CO (FADDX1_HVT)             0.14       2.76 r
+  intadd_0/U12/CO (FADDX1_HVT)             0.14       2.90 r
+  intadd_0/U11/CO (FADDX1_HVT)             0.14       3.04 r
+  intadd_0/U10/CO (FADDX1_HVT)             0.14       3.18 r
+  intadd_0/U9/CO (FADDX1_HVT)              0.14       3.33 r
+  intadd_0/U8/CO (FADDX1_HVT)              0.14       3.47 r
+  intadd_0/U7/CO (FADDX1_HVT)              0.14       3.61 r
+  intadd_0/U6/CO (FADDX1_HVT)              0.14       3.75 r
+  intadd_0/U5/CO (FADDX1_HVT)              0.14       3.89 r
+  intadd_0/U4/CO (FADDX1_HVT)              0.14       4.04 r
+  intadd_0/U3/CO (FADDX1_HVT)              0.14       4.18 r
+  intadd_0/U2/CO (FADDX1_HVT)              0.14       4.31 r
+  U2087/Y (XNOR3X1_HVT)                    0.28       4.59 r
+  PE_sum[19] (out)                         0.00       4.59 r
+  data arrival time                                   4.59
+  -----------------------------------------------------------
+  (Path is unconstrained)
 
 
 1

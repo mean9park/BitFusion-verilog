@@ -2,7 +2,7 @@
 
 set search_path [list .]
  
-set edk_home /home/espanol/libraries/SAED32_EDK_01132015/
+set edk_home /home/espanol/libraries/PDKS/SAED32_EDK_12162019/
 set io_dir $edk_home/lib/io_std
 set pll_dir $edk_home/lib/pll
 set stdcell_dir $edk_home/lib/stdcell_hvt
@@ -61,7 +61,7 @@ set_dont_touch (get_designs bitbrick)
 # set current_design top
 # link
 
-create_clock clk -period 3
+create_clock clk -period 3.1
 
 ungroup -all -flatten
 
