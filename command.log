@@ -1,6 +1,6 @@
 #@ # 
 #@ # Running dc_shell Version N-2017.09-SP3 for linux64 -- Jan 18, 2018
-#@ # Date:   Sun Nov 21 18:13:45 2021
+#@ # Date:   Fri Feb 18 17:55:22 2022
 #@ # Run by: espanol@friday
 #@ 
 
@@ -6624,10 +6624,10 @@ source /usr/synopsys/SYN/admin/setup/.synopsys_dc.setup
 
 #@ # -- End source /usr/synopsys/SYN/admin/setup/.synopsys_dc.setup
 
-source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
-#@ # -- Starting source /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
+source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_single_logic.tcl
+#@ # -- Starting source /home/espanol/RSSA_DC/bitfusion/dc_single_logic.tcl
 
-#@ # set_host_options -max_cores 16
+#@ set_host_options -max_cores 16
 #@ 
 #@ set search_path [list .]
 #@ 
@@ -6650,24 +6650,24 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ define_design_lib WORK -path WORK
 #@ 
 #@ set SOURCE_FILES {
-#@     ./HA.v
+#@     ./signed3bit_MUL.v
+#@     ./bitbrick.v
 #@     ./FA.v
-#@ 	./accumulator.v
-#@ 	./bitbrick_shift.v
-#@ 	./bitbrick.v
-#@ 	./BitFusion_column.v
-#@ 	./Buffer_32bit.v
-#@ 	./Input_MUX_REG.v
-#@ 	./PE_adder.v
-#@ 	./PE_register.v
-#@ 	./PE.v
-#@ 	./signed3bit_MUL.v
-#@ 	./top.v
-#@ 	./Weight_MUX_REG.v
+#@     ./HA.v
 #@ }
+#@ # ./PE.v
+#@ # ./PE_adder.v
+#@ # ./bitbrick_shift.v
+#@ # ./Input_MUX_REG.v
+#@ # ./PE_register.v
+#@ # ./accumulator.v
+#@ # ./Buffer_32bit.v
+#@ # ./BitFusion_column.v
+#@ # ./Weight_MUX_REG.v
 #@ 
 #@ analyze -format verilog $SOURCE_FILES -library WORK
-#@ elaborate BitFusion
+#@ elaborate bitbrick
+#@ 
 #@ 
 #@ set reports_dir reports
 #@ set final_reports_dir final_reports
@@ -6683,38 +6683,35 @@ source -echo -verbose /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
 #@ 	file mkdir $design_dir
 #@ }
 #@ 
-#@ set_dont_touch (get_designs bitbrick)
-#@ # set_dont_touch (get_designs signed_3bit_MUL)
-#@ # set_dont_touch (get_designs BitFusion)
-#@ 
 #@ # set current_design top
-#@ # link
+#@ link
 #@ 
-#@ create_clock clk -period 3.1
+#@ create_clock clk -period 3
 #@ 
 #@ ungroup -all -flatten
-#@ 
+#@ link
 #@ compile_ultra
-#@ # compile
+#@ #compile
 #@ 
-#@ report_design > $design_dir/design
+#@ report_design > $design_dir/bitbrick_design
 #@ 
-#@ report_synthetic > $reports_dir/synthetic
+#@ report_synthetic > $reports/dir/bitbrick_synthetic
 #@ 
-#@ report_timing > $final_reports_dir/timing.txt
-#@ sh cat $final_reports_dir/timing.txt
+#@ report_timing > $final_reports_dir/bitbrick_timing.txt
+#@ sh cat $final_reports_dir/bitbrick_timing.txt
 #@ 
-#@ # set currect_design PE.v
+#@ # set current design PE.v
 #@ 
-#@ report_area > $final_reports_dir/area.txt
-#@ sh cat $final_reports_dir/area.txt
+#@ report_area > $final_reports_dir/bitbrick_area.txt
+#@ sh cat $final_reports_dir/bitbrick_area.txt
 #@ 
-#@ report_power > $final_reports_dir/power.txt
-#@ sh cat $final_reports_dir/power.txt
+#@ report_power > $final_reports_dir/bitbrick_power.txt
+#@ sh cat $final_reports_dir/bitbrick_power.txt
 #@ 
-#@ write_file -f verilog -hier -output ./output/syn.v
-#@ write_file -f ddc -hier -output ./output/syn.ddc
+#@ write_file -f verilog -hier -output ./output/bitbrick_syn.v
+#@ write_file -f ddc -hier -output ./output/bitbrick_syn.ddc
 #@ 
 #@ #exit
-#@ # -- End source /home/espanol/RSSA_DC/bitfusion/dc_bitfusion.tcl
+#@ # -- End source /home/espanol/RSSA_DC/bitfusion/dc_single_logic.tcl
 
+quit

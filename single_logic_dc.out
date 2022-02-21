@@ -48,23 +48,20 @@ sh rm -rf ./WORK
 define_design_lib WORK -path WORK
 1
 set SOURCE_FILES {
-    ./PE.v
-    ./PE_adder.v
+    ./signed3bit_MUL.v
+    ./bitbrick.v
     ./FA.v
     ./HA.v
-    ./bitbrick_shift.v
-    ./bitbrick.v
-    ./signed3bit_MUL.v
 }
 
-    ./PE.v
-    ./PE_adder.v
+    ./signed3bit_MUL.v
+    ./bitbrick.v
     ./FA.v
     ./HA.v
-    ./bitbrick_shift.v
-    ./bitbrick.v
-    ./signed3bit_MUL.v
 
+# ./PE.v
+# ./PE_adder.v
+# ./bitbrick_shift.v
 # ./Input_MUX_REG.v
 # ./PE_register.v
 # ./accumulator.v
@@ -73,20 +70,17 @@ set SOURCE_FILES {
 # ./Weight_MUX_REG.v
 analyze -format verilog $SOURCE_FILES -library WORK
 Running PRESTO HDLC
-Compiling source file ./PE.v
-Compiling source file ./PE_adder.v
+Compiling source file ./signed3bit_MUL.v
+Compiling source file ./bitbrick.v
 Compiling source file ./FA.v
 Compiling source file ./HA.v
-Compiling source file ./bitbrick_shift.v
-Compiling source file ./bitbrick.v
-Compiling source file ./signed3bit_MUL.v
 Presto compilation completed successfully.
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
 Loading db file '/usr/synopsys/SYN/libraries/syn/dw_foundation.sldb'
 1
-elaborate PE
+elaborate bitbrick
 Loading db file '/usr/synopsys/SYN/libraries/syn/gtech.db'
 Loading db file '/usr/synopsys/SYN/libraries/syn/standard.sldb'
   Loading link library 'saed32hvt_ss0p95v125c'
@@ -96,13 +90,7 @@ Loading db file '/usr/synopsys/SYN/libraries/syn/standard.sldb'
 Running PRESTO HDLC
 Presto compilation completed successfully.
 Elaborated 1 design.
-Current design is now 'PE'.
-Information: Building the design 'bitbrick'. (HDL-193)
-Presto compilation completed successfully.
-Information: Building the design 'bitbrick_shift'. (HDL-193)
-Presto compilation completed successfully.
-Information: Building the design 'PE_adder'. (HDL-193)
-Presto compilation completed successfully.
+Current design is now 'bitbrick'.
 Information: Building the design 'signed_3bit_MUL'. (HDL-193)
 Presto compilation completed successfully.
 Information: Building the design 'HA'. (HDL-193)
@@ -128,10 +116,10 @@ if { ! [ file exists $design_dir] } {
 # set current_design top
 link
 
-  Linking design 'PE'
+  Linking design 'bitbrick'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  * (7 designs)               /home/espanol/RSSA_DC/bitfusion/PE.db, etc
+  * (4 designs)               /home/espanol/RSSA_DC/bitfusion/bitbrick.db, etc
   saed32hvt_ss0p95v125c (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
   saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
   saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
@@ -141,8 +129,6 @@ link
 create_clock clk -period 3
 1
 ungroup -all -flatten
-Information: Changed wire load model for 'PE_adder' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
@@ -150,150 +136,14 @@ Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170
 Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
 Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick_shift' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'FA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'HA' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'signed_3bit_MUL' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'bitbrick' from '(none)' to 'ForQA'. (OPT-170)
 Information: Updating graph... (UID-83)
 1
 link
 
-  Linking design 'PE'
+  Linking design 'bitbrick'
   Using the following designs and libraries:
   --------------------------------------------------------------------------
-  PE                          /home/espanol/RSSA_DC/bitfusion/PE.db
+  bitbrick                    /home/espanol/RSSA_DC/bitfusion/bitbrick.db
   saed32hvt_ss0p95v125c (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db
   saed32pll_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db
   saed32io_fc_ss0p95v125c_2p25v (library) /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db
@@ -315,9 +165,9 @@ Information: Evaluating DesignWare library utilization. (UISN-27)
 
 Information: Sequential output inversion is enabled.  SVF file must be used for formal verification. (OPT-1208)
 
-Information: There are 4 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+Information: There are 2 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
 
-  Simplifying Design 'PE'
+  Simplifying Design 'bitbrick'
 
   Loading target library 'saed32pll_ss0p95v125c_2p25v'
   Loading target library 'saed32io_fc_ss0p95v125c_2p25v'
@@ -330,9 +180,7 @@ Information: State dependent leakage is now switched from on to off.
 
   Beginning Pass 1 Mapping
   ------------------------
-  Processing 'PE'
- Implement Synthetic for 'PE'.
-Information: Added key list 'DesignWare' to design 'PE'. (DDB-72)
+  Processing 'bitbrick'
 
   Updating timing information
 Information: Updating design information... (UID-85)
@@ -391,7 +239,6 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 26)
   Global Optimization (Phase 27)
   Global Optimization (Phase 28)
-  Global Optimization (Phase 29)
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -409,38 +256,38 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
-    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
-    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
-    0:00:05    3489.9      0.00       0.0       0.0                           48771028.0000
+    0:00:02      46.0      0.00       0.0       0.0                           549264.3125
+    0:00:02      46.0      0.00       0.0       0.0                           549264.3125
+    0:00:02      46.0      0.00       0.0       0.0                           549264.3125
+    0:00:02      46.0      0.00       0.0       0.0                           549264.3125
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
 
   Beginning WLM Backend Optimization
   --------------------------------------
-    0:00:06    3485.8      0.00       0.0       0.0                           48667616.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:02      45.2      0.00       0.0       0.0                           557425.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
 
 Threshold voltage group cell usage:
 >> saed32cell_hvt 100.00%, saed32cell_svt 0.00%
@@ -453,7 +300,8 @@ Threshold voltage group cell usage:
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:06    3485.6      0.00       0.0       0.0                           48647184.0000
+    0:00:02      45.2      0.00       0.0       0.0                           545707.1875
+  Global Optimization (Phase 29)
   Global Optimization (Phase 30)
   Global Optimization (Phase 31)
   Global Optimization (Phase 32)
@@ -464,43 +312,42 @@ Threshold voltage group cell usage:
   Global Optimization (Phase 37)
   Global Optimization (Phase 38)
   Global Optimization (Phase 39)
-  Global Optimization (Phase 40)
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
 
                                   TOTAL                                                
    ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
     TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
   --------- --------- --------- --------- --------- ------------------------- ---------
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3501.9      0.00       0.0       0.0                           45769064.0000
-    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
-    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
-    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
-    0:00:06    3481.5      0.00       0.0       0.0                           45684308.0000
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
+    0:00:02      45.2      0.00       0.0       0.0                           498835.0938
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db'
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/pll/db_nldm/saed32pll_ss0p95v125c_2p25v.db'
 Loading db file '/home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/io_std/db_nldm/saed32io_fc_ss0p95v125c_2p25v.db'
@@ -517,120 +364,97 @@ Information: State dependent leakage is now switched from off to on.
 Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
 1
 #compile
-report_design > $design_dir/column_design
-report_synthetic > $reports/dir/column_synthetic
+report_design > $design_dir/bitbrick_design
+report_synthetic > $reports/dir/bitbrick_synthetic
 Error: can't read "reports": no such variable
 	Use error_info for more info. (CMD-013)
-report_timing > $final_reports_dir/column_timing.txt
-sh cat $final_reports_dir/column_timing.txt
+report_timing > $final_reports_dir/bitbrick_timing.txt
+sh cat $final_reports_dir/bitbrick_timing.txt
  
 ****************************************
 Report : timing
         -path full
         -delay max
         -max_paths 1
-Design : PE
+Design : bitbrick
 Version: N-2017.09-SP3
-Date   : Sat Nov 20 21:50:29 2021
+Date   : Fri Feb 18 17:55:27 2022
 ****************************************
 
 Operating Conditions: ss0p95v125c   Library: saed32hvt_ss0p95v125c
 Wire Load Model Mode: enclosed
 
   Startpoint: y[0] (input port)
-  Endpoint: PE_sum[19] (output port)
+  Endpoint: p[5] (output port)
   Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  PE                 8000                  saed32hvt_ss0p95v125c
+  bitbrick           ForQA                 saed32hvt_ss0p95v125c
 
   Point                                    Incr       Path
   -----------------------------------------------------------
-  input external delay                     0.00       0.00 r
-  y[0] (in)                                0.00       0.00 r
-  U1149/Y (NAND2X0_HVT)                    0.08       0.08 f
-  U1154/Y (NAND3X0_HVT)                    0.08       0.15 r
-  U1155/SO (HADDX1_HVT)                    0.18       0.33 f
-  U983/Y (INVX0_HVT)                       0.04       0.36 r
-  U1157/Y (NAND2X0_HVT)                    0.06       0.42 f
-  U1158/Y (NOR2X0_HVT)                     0.12       0.55 r
-  U1161/Y (NAND2X0_HVT)                    0.11       0.66 f
-  U1446/Y (NAND2X0_HVT)                    0.09       0.75 r
-  U1447/Y (AND2X1_HVT)                     0.10       0.85 r
-  U1448/Y (AO22X1_HVT)                     0.10       0.95 r
-  U2027/Y (NOR2X0_HVT)                     0.12       1.07 f
-  U2050/S (FADDX1_HVT)                     0.21       1.28 r
-  U2054/S (FADDX1_HVT)                     0.24       1.51 f
-  U2055/S (FADDX1_HVT)                     0.21       1.72 r
-  intadd_7/U3/S (FADDX1_HVT)               0.24       1.96 f
-  intadd_14/U2/S (FADDX1_HVT)              0.22       2.18 r
-  intadd_0/U16/CO (FADDX1_HVT)             0.15       2.33 r
-  intadd_0/U15/CO (FADDX1_HVT)             0.14       2.47 r
-  intadd_0/U14/CO (FADDX1_HVT)             0.14       2.62 r
-  intadd_0/U13/CO (FADDX1_HVT)             0.14       2.76 r
-  intadd_0/U12/CO (FADDX1_HVT)             0.14       2.90 r
-  intadd_0/U11/CO (FADDX1_HVT)             0.14       3.04 r
-  intadd_0/U10/CO (FADDX1_HVT)             0.14       3.18 r
-  intadd_0/U9/CO (FADDX1_HVT)              0.14       3.33 r
-  intadd_0/U8/CO (FADDX1_HVT)              0.14       3.47 r
-  intadd_0/U7/CO (FADDX1_HVT)              0.14       3.61 r
-  intadd_0/U6/CO (FADDX1_HVT)              0.14       3.75 r
-  intadd_0/U5/CO (FADDX1_HVT)              0.14       3.89 r
-  intadd_0/U4/CO (FADDX1_HVT)              0.14       4.04 r
-  intadd_0/U3/CO (FADDX1_HVT)              0.14       4.18 r
-  intadd_0/U2/CO (FADDX1_HVT)              0.14       4.31 r
-  U2087/Y (XNOR3X1_HVT)                    0.28       4.59 r
-  PE_sum[19] (out)                         0.00       4.59 r
-  data arrival time                                   4.59
+  input external delay                     0.00       0.00 f
+  y[0] (in)                                0.00       0.00 f
+  U25/Y (NAND2X0_HVT)                      0.06       0.06 r
+  U32/Y (NAND3X0_HVT)                      0.13       0.19 f
+  U33/SO (HADDX1_HVT)                      0.18       0.37 r
+  U34/Y (NAND2X0_HVT)                      0.08       0.45 f
+  U21/Y (INVX0_HVT)                        0.06       0.52 r
+  U35/Y (NAND2X0_HVT)                      0.09       0.61 f
+  U24/Y (INVX0_HVT)                        0.05       0.65 r
+  U38/Y (NAND2X0_HVT)                      0.07       0.72 f
+  U39/Y (INVX0_HVT)                        0.03       0.76 r
+  p[5] (out)                               0.00       0.76 r
+  data arrival time                                   0.76
   -----------------------------------------------------------
   (Path is unconstrained)
 
 
 1
 # set current design PE.v
-report_area > $final_reports_dir/column_area.txt
-sh cat $final_reports_dir/column_area.txt
+report_area > $final_reports_dir/bitbrick_area.txt
+sh cat $final_reports_dir/bitbrick_area.txt
  
 ****************************************
 Report : area
-Design : PE
+Design : bitbrick
 Version: N-2017.09-SP3
-Date   : Sat Nov 20 21:50:29 2021
+Date   : Fri Feb 18 17:55:27 2022
 ****************************************
 
 Library(s) Used:
 
     saed32hvt_ss0p95v125c (File: /home/espanol/libraries/PDKS/SAED32_EDK_12162019/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p95v125c.db)
 
-Number of ports:                          162
-Number of nets:                          1704
-Number of cells:                         1310
-Number of combinational cells:           1310
+Number of ports:                           14
+Number of nets:                            29
+Number of cells:                           23
+Number of combinational cells:             23
 Number of sequential cells:                 0
 Number of macros/black boxes:               0
-Number of buf/inv:                        185
-Number of references:                      21
+Number of buf/inv:                          6
+Number of references:                       9
 
-Combinational area:               3481.518624
-Buf/Inv area:                      235.083201
+Combinational area:                 45.237632
+Buf/Inv area:                        7.624320
 Noncombinational area:               0.000000
 Macro/Black Box area:                0.000000
-Net Interconnect area:             626.967772
+Net Interconnect area:               5.148574
 
-Total cell area:                  3481.518624
-Total area:                       4108.486396
+Total cell area:                    45.237632
+Total area:                         50.386206
 1
-report_power > $final_reports_dir/column_power.txt
-sh cat $final_reports_dir/column_power.txt
+report_power > $final_reports_dir/bitbrick_power.txt
+sh cat $final_reports_dir/bitbrick_power.txt
  
 ****************************************
 Report : power
         -analysis_effort low
-Design : PE
+Design : bitbrick
 Version: N-2017.09-SP3
-Date   : Sat Nov 20 21:50:29 2021
+Date   : Fri Feb 18 17:55:27 2022
 ****************************************
 
 
@@ -644,7 +468,7 @@ Wire Load Model Mode: enclosed
 
 Design        Wire Load Model            Library
 ------------------------------------------------
-PE                     8000              saed32hvt_ss0p95v125c
+bitbrick               ForQA             saed32hvt_ss0p95v125c
 
 
 Global Operating Voltage = 0.95 
@@ -656,12 +480,12 @@ Power-specific unit information :
     Leakage Power Units = 1pW
 
 
-  Cell Internal Power  = 202.2330 uW   (73%)
-  Net Switching Power  =  74.7128 uW   (27%)
+  Cell Internal Power  = 753.7541 nW   (65%)
+  Net Switching Power  = 397.1182 nW   (35%)
                          ---------
-Total Dynamic Power    = 276.9458 uW  (100%)
+Total Dynamic Power    =   1.1509 uW  (100%)
 
-Cell Leakage Power     =  43.7233 uW
+Cell Leakage Power     = 519.2599 nW
 
 
                  Internal         Switching           Leakage            Total
@@ -673,16 +497,17 @@ black_box          0.0000            0.0000            0.0000            0.0000 
 clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
 register           0.0000            0.0000            0.0000            0.0000  (   0.00%)
 sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
-combinational    202.2329           74.7127        4.3723e+07          320.6691  ( 100.00%)
+combinational      0.7538            0.3971        5.1926e+05            1.6701  ( 100.00%)
 --------------------------------------------------------------------------------------------------
-Total            202.2329 uW        74.7127 uW     4.3723e+07 pW       320.6691 uW
+Total              0.7538 uW         0.3971 uW     5.1926e+05 pW         1.6701 uW
 1
-write_file -f verilog -hier -output ./output/column_syn.v
-Writing verilog file '/home/espanol/RSSA_DC/bitfusion/output/column_syn.v'.
+write_file -f verilog -hier -output ./output/bitbrick_syn.v
+Writing verilog file '/home/espanol/RSSA_DC/bitfusion/output/bitbrick_syn.v'.
 1
-write_file -f ddc -hier -output ./output/column_syn.ddc
-Writing ddc file './output/column_syn.ddc'.
+write_file -f ddc -hier -output ./output/bitbrick_syn.ddc
+Writing ddc file './output/bitbrick_syn.ddc'.
 1
 #exit
 Warning: Cannot use command line editor for terminal type 'xterm-256color'.  (UI-74)
 dc_shell> 
+Thank you...

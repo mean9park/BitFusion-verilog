@@ -21,14 +21,14 @@ sh rm -rf ./WORK
 define_design_lib WORK -path WORK
 
 set SOURCE_FILES {
-    ./PE.v
-    ./PE_adder.v
+    ./signed3bit_MUL.v
+    ./bitbrick.v
     ./FA.v
     ./HA.v
-    ./bitbrick_shift.v
-    ./bitbrick.v
-    ./signed3bit_MUL.v
 }
+    # ./PE.v
+    # ./PE_adder.v
+    # ./bitbrick_shift.v
     # ./Input_MUX_REG.v
     # ./PE_register.v
     # ./accumulator.v
@@ -37,7 +37,7 @@ set SOURCE_FILES {
     # ./Weight_MUX_REG.v
 
 analyze -format verilog $SOURCE_FILES -library WORK
-elaborate PE
+elaborate bitbrick
 
 
 set reports_dir reports
@@ -64,22 +64,22 @@ link
 compile_ultra
 #compile
 
-report_design > $design_dir/column_design
+report_design > $design_dir/bitbrick_design
 
-report_synthetic > $reports/dir/column_synthetic
+report_synthetic > $reports/dir/bitbrick_synthetic
 
-report_timing > $final_reports_dir/column_timing.txt
-sh cat $final_reports_dir/column_timing.txt
+report_timing > $final_reports_dir/bitbrick_timing.txt
+sh cat $final_reports_dir/bitbrick_timing.txt
 
 # set current design PE.v
 
-report_area > $final_reports_dir/column_area.txt
-sh cat $final_reports_dir/column_area.txt
+report_area > $final_reports_dir/bitbrick_area.txt
+sh cat $final_reports_dir/bitbrick_area.txt
 
-report_power > $final_reports_dir/column_power.txt
-sh cat $final_reports_dir/column_power.txt
+report_power > $final_reports_dir/bitbrick_power.txt
+sh cat $final_reports_dir/bitbrick_power.txt
 
-write_file -f verilog -hier -output ./output/column_syn.v
-write_file -f ddc -hier -output ./output/column_syn.ddc
+write_file -f verilog -hier -output ./output/bitbrick_syn.v
+write_file -f ddc -hier -output ./output/bitbrick_syn.ddc
 
 #exit
